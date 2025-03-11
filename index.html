@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerin Sigi - Portfolio</title>
+</head>
+<body style="margin: 0; padding: 0; background: #000000; color: #FFFFFF; font-family: 'Poppins', sans-serif; overflow-x: hidden; position: relative;">
+    <!-- Background Bubble Animation -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1;">
+        <div class="bubble" style="position: absolute; width: 20px; height: 20px; background: rgba(0, 255, 185, 0.3); border-radius: 50%; animation: float 6s infinite ease-in-out; bottom: -20px; left: 10%;"></div>
+        <div class="bubble" style="position: absolute; width: 15px; height: 15px; background: rgba(255, 0, 122, 0.3); border-radius: 50%; animation: float 8s infinite ease-in-out; bottom: -15px; left: 30%; animation-delay: 1s;"></div>
+        <div class="bubble" style="position: absolute; width: 25px; height: 25px; background: rgba(0, 255, 185, 0.2); border-radius: 50%; animation: float 5s infinite ease-in-out; bottom: -25px; left: 50%; animation-delay: 2s;"></div>
+        <div class="bubble" style="position: absolute; width: 10px; height: 10px; background: rgba(255, 0, 122, 0.4); border-radius: 50%; animation: float 7s infinite ease-in-out; bottom: -10px; left: 70%; animation-delay: 3s;"></div>
+        <div class="bubble" style="position: absolute; width: 30px; height: 30px; background: rgba(0, 255, 185, 0.3); border-radius: 50%; animation: float 9s infinite ease-in-out; bottom: -30px; left: 90%; animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav style="position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.9); padding: 20px; z-index: 100;">
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 40px;">
+            <li><a href="#home" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Home</a></li>
+            <li><a href="#about" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">About</a></li>
+            <li><a href="#skills" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Skills</a></li>
+            <li><a href="#education" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Education</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
+        <h1 style="font-size: 48px; font-weight: 700; animation: fadeIn 1s ease-in-out;">Hi, I’m <span style="color: #00FFB9; position: relative; display: inline-block; animation: slideUnderline 1.5s ease-in-out infinite;">Jerin Sigi</span></h1>
+        <p style="font-size: 24px; font-weight: 300; opacity: 0; animation: fadeIn 1s ease-in-out 0.5s forwards;">Developer & Designer</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="min-height: 100vh; padding: 100px 20px; display: flex; justify-content: center; align-items: center; gap: 40px;">
+        <div style="max-width: 500px; opacity: 0; animation: slideInLeft 1s ease-in-out forwards;">
+            <h2 style="font-size: 36px; font-weight: 500;">About Me</h2>
+            <p style="font-size: 18px; font-weight: 300; line-height: 1.6;">As a passionate technology enthusiast, I’m pursuing a Bachelor’s degree at Mahatma Gandhi University, focusing on programming, cloud computing, and product innovation. Through hands-on experience with Infosys Springboard and ITRONIX SOLUTION, I’ve honed skills in C programming, web/mobile app development, and IoT. My certifications in AI, cloud computing, and strategic thinking underscore my dedication to continuous learning and impactful tech solutions.</p>
+        </div>
+        <div style="width: 200px; height: 200px; background: #333; border-radius: 50%; opacity: 0; animation: slideInRight 1s ease-in-out forwards;"></div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="min-height: 100vh; padding: 100px 20px; text-align: center;">
+        <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 40px; opacity: 0; animation: fadeIn 1s ease-in-out forwards;">Skills</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto;">
+            <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; opacity: 0; animation: slideInUp 1s ease-in-out 0.2s forwards, floatSkill 3s infinite ease-in-out; transition: transform 0.3s ease-in-out; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                <h3 style="font-size: 24px;">HTML/CSS</h3>
+                <p style="font-size: 16px;">Building responsive, modern layouts.</p>
+            </div>
+            <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; opacity: 0; animation: slideInUp 1s ease-in-out 0.4s forwards, floatSkill 3.5s infinite ease-in-out; transition: transform 0.3s ease-in-out; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                <h3 style="font-size: 24px;">JavaScript</h3>
+                <p style="font-size: 16px;">Dynamic and interactive features.</p>
+            </div>
+            <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; opacity: 0; animation: slideInUp 1s ease-in-out 0.6s forwards, floatSkill 4s infinite ease-in-out; transition: transform 0.3s ease-in-out; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                <h3 style="font-size: 24px;">React</h3>
+                <p style="font-size: 16px;">Component-based UI development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="min-height: 100vh; padding: 100px 20px; text-align: center;">
+        <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 40px; opacity: 0; animation: fadeIn 1s ease-in-out forwards;">Education</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <div class="edu-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; margin-bottom: 20px; opacity: 0; animation: slideInUp 1s ease-in-out 0.2s forwards; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.03)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.9';">
+                <h3 style="font-size: 24px; margin: 0;">Bachelor of Technology in Computer Science</h3>
+                <p style="font-size: 18px; font-weight: 300; margin: 5px 0;">XYZ University | 2018 - 2022</p>
+                <p style="font-size: 16px; color: #AAAAAA;">Graduated with a focus on software development and UI/UX design.</p>
+            </div>
+            <div class="edu-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; margin-bottom: 20px; opacity: 0; animation: slideInUp 1s ease-in-out 0.4s forwards; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.03)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.9';">
+                <h3 style="font-size: 24px; margin: 0;">High School Diploma</h3>
+                <p style="font-size: 18px; font-weight: 300; margin: 5px 0;">ABC School | 2016 - 2018</p>
+                <p style="font-size: 16px; color: #AAAAAA;">Specialized in Science and Mathematics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 20px; text-align: center; background: #1A1A1A; color: #AAAAAA; font-size: 14px;">
+        <p>© Jerin Sigi | contact: <a href="mailto:jerinsigi@gmail.com" style="color: #AAAAAA; text-decoration: none; transition: color 0.3s ease-in-out;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#AAAAAA';">jerinsigi@gmail.com</a></p>
+        <div style="margin-top: 10px;">
+            <a href="https://linkedin.com" target="_blank" style="margin: 0 10px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF" style="transition: fill 0.3s ease-in-out;" onmouseover="this.style.fill='#0A66C2';" onmouseout="this.style.fill='#FFFFFF';"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-1.337-.026-3.058-1.867-3.058-1.867 0-2.153 1.459-2.153 2.965v5.697h-3v-11h2.879v1.507h.041c.401-.757 1.379-1.557 2.837-1.557 3.033 0 3.593 1.996 3.593 4.591v6.459z"/></svg>
+            </a>
+            <a href="https://github.com" target="_blank" style="margin: 0 10px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF" style="transition: fill 0.3s ease-in-out;" onmouseover="this.style.fill='#4078C0';" onmouseout="this.style.fill='#FFFFFF';"><path d="M12 2a10 10 0 00-3.162 19.487c.5.092.682-.217.682-.482v-1.69c-2.785.61-3.37-1.34-3.37-1.34-.455-1.157-1.112-1.465-1.112-1.465-.908-.62.068-.608.068-.608 1.003.084 1.53 1.032 1.53 1.032.892 1.528 2.34 1.087 2.91.832.092-.647.35-1.087.636-1.338-2.22-.252-4.555-1.11-4.555-4.943 0-1.092.39-1.985 1.03-2.683-.103-.252-.447-1.268.098-2.642 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.337 1.91-1.296 2.747-1.025 2.747-1.025.546 1.374.202 2.39.1 2.642.64.698 1.028 1.591 1.028 2.683 0 3.841-2.337 4.687-4.565 4.935.36.31.678.92.678 1.852v2.743c0 .267.18.577.688.478A10 10 0 0012 2z"/></svg>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Inline CSS Animations -->
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUnderline {
+            0% { border-bottom: 2px solid #00FFB9; width: 0; }
+            50% { width: 100%; }
+            100% { width: 0; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); opacity: 0.8; }
+            50% { transform: translateY(-50vh) translateX(20px); opacity: 0.5; }
+            100% { transform: translateY(-100vh) translateX(-10px); opacity: 0; }
+        }
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0.7); }
+            50% { transform: rotate(10deg) scale(1.05); box-shadow: 0 0 15px 5px rgba(0, 255, 185, 0.5); }
+            100% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0); }
+        }
+        @keyframes floatSkill {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+        .bubble { will-change: transform; }
+        .skill-box.clicked { animation: rotateGlow 0.6s ease-in-out; }
+        .edu-box { opacity: 0.9; }
+    </style>
+
+    <!-- Inline JavaScript for Scroll and Click Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Scroll Animation
+            const sections = document.querySelectorAll("section");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.querySelectorAll("*").forEach(el => {
+                            if (el.style.animation) el.style.animationPlayState = "running";
+                        });
+                    }
+                });
+            }, { threshold: 0.2 });
+            sections.forEach(section => observer.observe(section));
+
+            // Click Animation for Skill Boxes
+            const skillBoxes = document.querySelectorAll(".skill-box");
+            skillBoxes.forEach(box => {
+                box.addEventListener("click", () => {
+                    box.classList.add("clicked");
+                    setTimeout(() => {
+                        box.classList.remove("clicked");
+                    }, 600); // Matches animation duration
+                });
+            });
+        });
+    </script>
+</body>
+                                                                                                                                                                                                                            </html>
