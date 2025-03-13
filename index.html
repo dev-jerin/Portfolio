@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jerin Sigi - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body style="margin: 0; padding: 0; background: #000000; color: #FFFFFF; font-family: 'Poppins', sans-serif; overflow-x: hidden; position: relative;">
+
     <!-- Background Bubble Animation -->
     <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1;">
         <div class="bubble" style="position: absolute; width: 20px; height: 20px; background: rgba(0, 255, 185, 0.3); border-radius: 50%; animation: float 6s infinite ease-in-out; bottom: -20px; left: 10%;"></div>
@@ -32,12 +34,31 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section" style="min-height: 100vh; padding: 100px 20px; display: flex; justify-content: center; align-items: center; gap: 40px;">
-        <div style="max-width: 500px;">
-            <h2 style="font-size: 36px; font-weight: 500;">About Me</h2>
-            <p style="font-size: 18px; font-weight: 300; line-height: 1.6;">As a passionate technology enthusiast, I’m pursuing a Bachelor’s degree at Mahatma Gandhi University, focusing on programming, cloud computing, and product innovation. Through hands-on experience with Infosys Springboard and ITRONIX SOLUTION, I’ve honed skills in C programming, web/mobile app development, and IoT. My certifications in AI, cloud computing, and strategic thinking underscore my dedication to continuous learning and impactful tech solutions.</p>
+    <section id="about" class="section" style="min-height: 100vh; padding: 100px 20px; display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
+        <div style="max-width: 500px; animation: slideInLeft 1s ease-in-out forwards;">
+            <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 20px;">About Me</h2>
+            <p style="font-size: 18px; font-weight: 300; line-height: 1.6; margin-bottom: 30px;">
+                As a passionate technology enthusiast, I’m pursuing a Bachelor’s degree at Mahatma Gandhi University, focusing on programming, cloud computing, and product innovation. Through hands-on experience with Infosys Springboard and ITRONIX SOLUTION, I’ve honed skills in C programming, web/mobile app development, and IoT. My certifications in AI, cloud computing, and strategic thinking underscore my dedication to continuous learning and impactful tech solutions.
+            </p>
+            <div class="details-container" style="background: #1A1A1A; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 255, 185, 0.3);">
+                <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
+                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Birthday:</span> 13 May 2005
+                </div>
+                <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
+                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Email:</span> <a href="mailto:jerinsigi@gmail.com" style="color: #00FFB9; text-decoration: none;" onmouseover="this.style.color='#FF007A';" onmouseout="this.style.color='#00FFB9';">jerinsigi@gmail.com</a>
+                </div>
+                <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
+                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">City:</span> Changanassery, Kerala, India
+                </div>
+                <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
+                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Age:</span> 19
+                </div>
+                <div class="detail-item" style="transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
+                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Degree:</span> UG
+                </div>
+            </div>
         </div>
-        <div style="width: 200px; height: 200px; background: #333; border-radius: 50%;"></div>
+        <div style="width: 200px; height: 200px; background: #333; border-radius: 50%; animation: slideInRight 1s ease-in-out forwards;"></div>
     </section>
 
     <!-- Skills Section -->
@@ -59,7 +80,7 @@
         </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education Section (Original) -->
     <section id="education" class="section" style="min-height: 100vh; padding: 100px 20px; text-align: center;">
         <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 40px;">Education</h2>
         <div style="max-width: 800px; margin: 0 auto; text-align: left;">
@@ -117,17 +138,16 @@
             50% { transform: rotate(10deg) scale(1.05); box-shadow: 0 0 15px 5px rgba(0, 255, 185, 0.5); }
             100% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0); }
         }
-        @keyframes floatSkill {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
         @keyframes glow {
             0% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); }
             50% { text-shadow: 0 0 15px rgba(0, 255, 185, 0.8), 0 0 25px rgba(0, 255, 185, 0.5); }
             100% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); }
         }
-        /* Smooth Scroll */
+        @keyframes floatSkill {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
         html { scroll-behavior: smooth; }
         .bubble { will-change: transform; }
         .skill-box.clicked { animation: rotateGlow 0.6s ease-in-out; }
@@ -175,7 +195,7 @@
                     typewriter.textContent = currentPhrase.substring(0, charIndex + 1);
                     charIndex++;
                     if (charIndex === currentPhrase.length) {
-                        setTimeout(() => isDeleting = true, 1000); // Pause before deleting
+                        setTimeout(() => isDeleting = true, 1000);
                     }
                 } else {
                     typewriter.textContent = currentPhrase.substring(0, charIndex - 1);
@@ -185,10 +205,10 @@
                         phraseIndex = (phraseIndex + 1) % phrases.length;
                     }
                 }
-                setTimeout(type, isDeleting ? 100 : 150); // Faster deletion, slower typing
+                setTimeout(type, isDeleting ? 100 : 150);
             }
             type();
         });
     </script>
 </body>
-    </html>
+                                                                                 </html>
