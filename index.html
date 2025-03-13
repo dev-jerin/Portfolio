@@ -19,17 +19,17 @@
 
     <!-- Navigation -->
     <nav style="position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.9); padding: 20px; z-index: 100;">
-        <ul style="list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 40px;">
-            <li><a href="#home" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Home</a></li>
-            <li><a href="#about" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">About</a></li>
-            <li><a href="#skills" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Skills</a></li>
-            <li><a href="#education" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Education</a></li>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 30px;">
+            <li><a href="#home" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Home</a></li>
+            <li><a href="#about" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">About</a></li>
+            <li><a href="#skills" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Skills</a></li>
+            <li><a href="#education" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Education</a></li>
         </ul>
     </nav>
 
     <!-- Home Section -->
     <section id="home" class="section" style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
-        <h1 style="font-size: 48px; font-weight: 700;">Hello I'm<span style="color: #00FFB9; position: relative; display: inline-block; animation: glow 2s infinite ease-in-out;">Jerin Sigi</span></h1><br>
+        <h1 style="font-size: 48px; font-weight: 700;">Hi, I’m <span style="color: #00FFB9; position: relative; display: inline-block; animation: glow 2s infinite ease-in-out;">Jerin Sigi</span></h1>
         <p id="typewriter" style="font-size: 24px; font-weight: 300;"></p>
     </section>
 
@@ -51,7 +51,7 @@
                     <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">City:</span> Changanassery, Kerala, India
                 </div>
                 <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
-                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Age:</span> 19
+                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Age:</span> <span id="age">19</span>
                 </div>
                 <div class="detail-item" style="transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
                     <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Degree:</span> UG
@@ -80,19 +80,31 @@
         </div>
     </section>
 
-    <!-- Education Section (Original) -->
+    <!-- Education Section (Updated with Timeline) -->
     <section id="education" class="section" style="min-height: 100vh; padding: 100px 20px; text-align: center;">
         <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 40px;">Education</h2>
-        <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-            <div class="edu-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; margin-bottom: 20px; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.03)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.9';">
-                <h3 style="font-size: 24px; margin: 0;">Bachelor's degree </h3>
-                <p style="font-size: 18px; font-weight: 300; margin: 5px 0;">MG University | 2023 - 2026</p>
-                <p style="font-size: 16px; color: #AAAAAA;">Graduated with a focus on technology.</p>
+        <div class="timeline-container" style="max-width: 800px; margin: 0 auto; text-align: left; position: relative;">
+            <!-- Timeline Line -->
+            <div style="position: absolute; width: 4px; background: #00FFB9; height: 100%; left: 20px; top: 0; opacity: 0.3;"></div>
+
+            <!-- Bachelor's Degree -->
+            <div class="timeline-item" style="position: relative; margin-bottom: 40px; padding-left: 60px; opacity: 0; animation: slideInLeft 1s ease-in-out forwards; animation-delay: 0.2s;">
+                <div class="timeline-circle" style="position: absolute; left: 12px; top: 5px; width: 20px; height: 20px; background: #00FFB9; border-radius: 50%; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.3)';" onmouseout="this.style.transform='scale(1)';"></div>
+                <div class="timeline-content" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
+                    <h3 style="font-size: 24px; margin: 0; color: #FFFFFF;">Bachelor's Degree</h3>
+                    <p style="font-size: 18px; font-weight: Ascent; 300; margin: 5px 0; color: #00FFB9;">MG University | 2023 - 2026</p>
+                    <p style="font-size: 16px; color: #AAAAAA;">Graduated with a focus on technology.</p>
+                </div>
             </div>
-            <div class="edu-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; margin-bottom: 20px; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.03)'; this.style.opacity='1';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.9';">
-                <h3 style="font-size: 24px; margin: 0;">High School Diploma</h3>
-                <p style="font-size: 18px; font-weight: 300; margin: 5px 0;">CBSE | 2021 - 2023</p>
-                <p style="font-size: 16px; color: #AAAAAA;">Specialized in Science and Mathematics.</p>
+
+            <!-- Higher Secondary -->
+            <div class="timeline-item" style="position: relative; margin-bottom: 40px; padding-left: 60px; opacity: 0; animation: slideInLeft 1s ease-in-out forwards; animation-delay: 0.4s;">
+                <div class="timeline-circle" style="position: absolute; left: 12px; top: 5px; width: 20px; height: 20px; background: #00FFB9; border-radius: 50%; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.3)';" onmouseout="this.style.transform='scale(1)';"></div>
+                <div class="timeline-content" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
+                    <h3 style="font-size: 24px; margin: 0; color: #FFFFFF;">Higher Secondary</h3>
+                    <p style="font-size: 18px; font-weight: 300; margin: 5px 0; color: #00FFB9;">CBSE | 2021 - 2023</p>
+                    <p style="font-size: 16px; color: #AAAAAA;">Specialized in Science and Mathematics.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -155,9 +167,31 @@
         .section { opacity: 0; transition: opacity 0.3s ease-in-out; }
         .section.visible { opacity: 1; }
         .section.visible > * { animation: slideInUp 1s ease-in-out forwards; }
+
+        /* Responsive Navigation */
+        @media (max-width: 600px) {
+            nav {
+                padding: 15px;
+            }
+            nav ul {
+                gap: 20px; /* Reduce gap to fit items */
+            }
+            nav ul li a {
+                font-size: 14px; /* Reduce font size */
+            }
+        }
+
+        @media (max-width: 400px) {
+            nav ul {
+                gap: 10px; /* Further reduce gap */
+            }
+            nav ul li a {
+                font-size: 12px; /* Further reduce font size */
+            }
+        }
     </style>
 
-    <!-- Inline JavaScript for Scroll and Typewriter Effects -->
+    <!-- Inline JavaScript for Scroll, Typewriter Effects, and Age Calculation -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Slide-Up Animation for Sections
@@ -208,7 +242,28 @@
                 setTimeout(type, isDeleting ? 100 : 150);
             }
             type();
+
+            // Calculate and Update Age
+            function calculateAge(birthday) {
+                const today = new Date();
+                const birthDate = new Date(birthday);
+                let age = today.getFullYear() - birthDate.getFullYear();
+                const monthDiff = today.getMonth() - birthDate.getMonth();
+                const dayDiff = today.getDate() - birthDate.getDate();
+
+                // Adjust age if the birthday hasn't occurred this year yet
+                if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                    age--;
+                }
+                return age;
+            }
+
+            // Update the age in the DOM
+            const birthday = "2005-05-13"; // Jerin's birthday in YYYY-MM-DD format
+            const ageElement = document.getElementById("age");
+            const age = calculateAge(birthday);
+            ageElement.textContent = age;
         });
     </script>
 </body>
-                                                                                 </html>
+</html>
