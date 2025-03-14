@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body style="margin: 0; padding: 0; background: #000000; color: #FFFFFF; font-family: 'Poppins', sans-serif; overflow-x: hidden; position: relative;">
-
     <!-- Background Bubble Animation -->
     <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1;">
         <div class="bubble" style="position: absolute; width: 20px; height: 20px; background: rgba(0, 255, 185, 0.3); border-radius: 50%; animation: float 6s infinite ease-in-out; bottom: -20px; left: 10%;"></div>
@@ -16,7 +15,6 @@
         <div class="bubble" style="position: absolute; width: 10px; height: 10px; background: rgba(255, 0, 122, 0.4); border-radius: 50%; animation: float 7s infinite ease-in-out; bottom: -10px; left: 70%; animation-delay: 3s;"></div>
         <div class="bubble" style="position: absolute; width: 30px; height: 30px; background: rgba(0, 255, 185, 0.3); border-radius: 50%; animation: float 9s infinite ease-in-out; bottom: -30px; left: 90%; animation-delay: 4s;"></div>
     </div>
-
     <!-- Navigation -->
     <nav style="position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.9); padding: 20px; z-index: 100;">
         <ul style="list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 30px;">
@@ -26,13 +24,11 @@
             <li><a href="#education" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Education</a></li>
         </ul>
     </nav>
-
     <!-- Home Section -->
     <section id="home" class="section" style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
         <h1 style="font-size: 48px; font-weight: 700;">Hi, I’m <span style="color: #00FFB9; position: relative; display: inline-block; animation: glow 2s infinite ease-in-out;">Jerin Sigi</span></h1>
         <p id="typewriter" style="font-size: 24px; font-weight: 300;"></p>
     </section>
-
     <!-- About Section -->
     <section id="about" class="section" style="min-height: 100vh; padding: 100px 20px; display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
         <div style="max-width: 500px; animation: slideInLeft 1s ease-in-out forwards;">
@@ -46,7 +42,9 @@
                 </div>
                 <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
                     <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Email:</span> <a href="mailto:jerinsigi@gmail.com" style="color: #00FFB9; text-decoration: none;" onmouseover="this.style.color='#FF007A';" onmouseout="this.style.color='#00FFB9';">jerinsigi@gmail.com</a>
-                </div>
+
+                   
+            </div>
                 <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
                     <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">City:</span> Changanassery, Kerala, India
                 </div>
@@ -60,26 +58,56 @@
         </div>
         <div style="width: 200px; height: 200px; background: #333; border-radius: 50%; animation: slideInRight 1s ease-in-out forwards;"></div>
     </section>
-
     <!-- Skills Section -->
     <section id="skills" class="section" style="min-height: 100vh; padding: 100px 20px; text-align: center;">
         <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 40px;">Skills</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto;">
-            <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
-                <h3 style="font-size: 24px;">HTML/CSS</h3>
-                <p style="font-size: 16px;">Building responsive, modern layouts.</p>
+        <div style="display: flex; flex-direction: column; gap: 30px; max-width: 600px; margin: 0 auto;">
+            <!-- HTML/CSS Skill -->
+            <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="font-size: 24px; margin: 0;">HTML/CSS</h3>
+                    <span class="skill-percentage" data-target="90" style="font-size: 18px; color: #00FFB9;">0%</span>
+                </div>
+                <div class="progress-bar" style="height: 10px; background: #333; border-radius: 5px; overflow: hidden; position: relative;">
+                    <div class="progress-fill" data-percentage="90" style="width: 0%; height: 100%; background: linear-gradient(90deg, #00FFB9, #FF007A); transition: width 2s ease-in-out;position: absolute; top: 0; left: 0; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7);"></div>
+                </div>
             </div>
-            <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
-                <h3 style="font-size: 24px;">JavaScript</h3>
-                <p style="font-size: 16px;">Dynamic and interactive features.</p>
+
+            <!-- JavaScript Skill -->
+            <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="font-size: 24px; margin: 0;">JavaScript</h3>
+                    <span class="skill-percentage" data-target="80" style="font-size: 18px; color: #00FFB9;">0%</span>
+                </div>
+                <div class="progress-bar" style="height: 10px; background: #333; border-radius: 5px; overflow: hidden; position: relative;">
+                    <div class="progress-fill" data-percentage="80" style="width: 0%; height: 100%; background: linear-gradient(90deg, #00FFB9, #FF007A); transition: width 2s ease-in-out; position: absolute; top: 0; left: 0; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7);"></div>
+                </div>
             </div>
-            <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
-                <h3 style="font-size: 24px;">Entrepreneurship</h3>
-                <p style="font-size: 16px;">Making new ideas.</p>
+
+            <!-- Entrepreneurship Skill -->
+            <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="font-size: 24px; margin: 0;">Entrepreneurship</h3>
+                    <span class="skill-percentage" data-target="70" style="font-size: 18px; color: #00FFB9;">0%</span>
+                </div>
+                <div class="progress-bar" style="height: 10px; background: #333; border-radius: 5px; overflow: hidden; position: relative;">
+                    <div class="progress-fill" data-percentage="70" style="width: 0%; height: 100%; background: linear-gradient(90deg, #00FFB9, #FF007A); transition: width 2s ease-in-out; position: absolute; top: 0; left: 0; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7);"></div>
+                </div>
+            </div>
+
+            <!-- IoT Skill -->
+            
+                   <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="font-size: 24px; margin: 0;">IoT</h3>
+                    <span class="skill-percentage" data-target="70" style="font-size: 18px; color: #00FFB9;">0%</span>
+                </div>
+                <div class="progress-bar" style="height: 10px; background: #333; border-radius: 5px; overflow: hidden; position: relative;">
+                    <div class="progress-fill" data-percentage="70" style="width: 0%; height: 100%; background: linear-gradient(90deg, #00FFB9, #FF007A); transition: width 2s ease-in-out; position: absolute; top: 0; left: 0; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7);"></div>
+                </div>
             </div>
         </div>
     </section>
-
     <!-- Education Section (Updated with Timeline) -->
     <section id="education" class="section" style="min-height: 100vh; padding: 100px 20px; text-align: center;">
         <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 40px;">Education</h2>
@@ -92,7 +120,7 @@
                 <div class="timeline-circle" style="position: absolute; left: 12px; top: 5px; width: 20px; height: 20px; background: #00FFB9; border-radius: 50%; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.3)';" onmouseout="this.style.transform='scale(1)';"></div>
                 <div class="timeline-content" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
                     <h3 style="font-size: 24px; margin: 0; color: #FFFFFF;">Bachelor's Degree</h3>
-                    <p style="font-size: 18px; font-weight: Ascent; 300; margin: 5px 0; color: #00FFB9;">MG University | 2023 - 2026</p>
+                    <p style="font-size: 18px; font-weight: 300; margin: 5px 0; color: #00FFB9;">MG University | 2023 - 2026</p>
                     <p style="font-size: 16px; color: #AAAAAA;">Graduating with a focus on technology.</p>
                 </div>
             </div>
@@ -108,7 +136,6 @@
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer style="padding: 20px; text-align: center; background: #1A1A1A; color: #AAAAAA; font-size: 14px;">
         <p>© Jerin Sigi | contact: <a href="mailto:jerinsigi@gmail.com" style="color: #AAAAAA; text-decoration: none; transition: color 0.3s ease-in-out;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#AAAAAA';">jerinsigi@gmail.com</a></p>
@@ -121,7 +148,6 @@
             </a>
         </div>
     </footer>
-
     <!-- Inline CSS Animations -->
     <style>
         @keyframes fadeIn {
@@ -151,7 +177,7 @@
             100% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0); }
         }
         @keyframes glow {
-            0% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); }
+        0% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); }
             50% { text-shadow: 0 0 15px rgba(0, 255, 185, 0.8), 0 0 25px rgba(0, 255, 185, 0.5); }
             100% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); }
         }
@@ -160,6 +186,11 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0); }
         }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 185, 1); }
+            100% { box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); }
+        }
         html { scroll-behavior: smooth; }
         .bubble { will-change: transform; }
         .skill-box.clicked { animation: rotateGlow 0.6s ease-in-out; }
@@ -167,6 +198,7 @@
         .section { opacity: 0; transition: opacity 0.3s ease-in-out; }
         .section.visible { opacity: 1; }
         .section.visible > * { animation: slideInUp 1s ease-in-out forwards; }
+        .progress-fill:hover, .skill-percentage:hover { animation: pulse 1s infinite ease-in-out; }
 
         /* Responsive Navigation */
         @media (max-width: 600px) {
@@ -174,24 +206,36 @@
                 padding: 15px;
             }
             nav ul {
-                gap: 20px; /* Reduce gap to fit items */
+                gap: 20px;
             }
             nav ul li a {
-                font-size: 14px; /* Reduce font size */
+                font-size: 14px;
             }
         }
-
         @media (max-width: 400px) {
             nav ul {
-                gap: 10px; /* Further reduce gap */
+                gap: 10px;
             }
             nav ul li a {
-                font-size: 12px; /* Further reduce font size */
+                font-size: 12px;
+            }
+        }
+        @media (max-width: 600px) {
+        .skill-box {
+                padding: 15px;
+            }
+            .skill-box h3 {
+                font-size: 20px;
+            }
+            .skill-percentage {
+                font-size: 16px;
+            }
+            .progress-bar {
+                height: 8px;
             }
         }
     </style>
-
-    <!-- Inline JavaScript for Scroll, Typewriter Effects, and Age Calculation -->
+    <!-- Inline JavaScript for Scroll, Typewriter Effects, Age Calculation, and Skill Animations -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Slide-Up Animation for Sections
@@ -221,7 +265,7 @@
             const phrases = ["Tech Enthusiast", "Developer"];
             let phraseIndex = 0;
             let charIndex = 0;
-            let isDeleting = false;
+        let isDeleting = false;
 
             function type() {
                 const currentPhrase = phrases[phraseIndex];
@@ -251,18 +295,53 @@
                 const monthDiff = today.getMonth() - birthDate.getMonth();
                 const dayDiff = today.getDate() - birthDate.getDate();
 
-                // Adjust age if the birthday hasn't occurred this year yet
                 if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
                     age--;
                 }
                 return age;
             }
 
-            // Update the age in the DOM
-            const birthday = "2005-05-13"; // Jerin's birthday in YYYY-MM-DD format
+            const birthday = "2005-05-13";
             const ageElement = document.getElementById("age");
             const age = calculateAge(birthday);
             ageElement.textContent = age;
+
+            // Animate Progress Bars and Percentage Counters
+            const progressBars = document.querySelectorAll(".progress-fill");
+            const percentageElements = document.querySelectorAll(".skill-percentage");
+           const animatePercentage = (element, target) => {
+                let current = 0;
+                const increment = target / 100;
+                const interval = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(interval);
+                    }
+                    element.textContent = Math.round(current) + "%";
+                }, 20);
+            };
+
+            const skillsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        progressBars.forEach(bar => {
+                            const percentage = bar.getAttribute("data-percentage");
+                            bar.style.width = percentage + "%";
+                        });
+
+                        percentageElements.forEach(element => {
+                            const target = parseInt(element.getAttribute("data-target"));
+                            animatePercentage(element, target);
+                        });
+
+                        skillsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const skillsSection = document.querySelector("#skills");
+            skillsObserver.observe(skillsSection);
         });
     </script>
 </body>
