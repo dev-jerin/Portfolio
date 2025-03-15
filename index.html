@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Jerin Sigi, a tech enthusiast and developer specializing in programming, cloud computing, and IoT.">
+    <meta name="keywords" content="Jerin Sigi, portfolio, tech enthusiast, developer, programming, cloud computing, IoT, web development">
+    <meta name="author" content="Jerin Sigi">
+    <meta name="robots" content="index, follow">
     <title>Jerin Sigi - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
@@ -16,12 +20,13 @@
         <div class="bubble" style="position: absolute; width: 30px; height: 30px; background: rgba(0, 255, 185, 0.3); border-radius: 50%; animation: float 9s infinite ease-in-out; bottom: -30px; left: 90%; animation-delay: 4s;"></div>
     </div>
     <!-- Navigation -->
-    <nav style="position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.9); padding: 20px; z-index: 100;">
-        <ul style="list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 30px;">
+    <nav style="position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.9); padding: 20px; z-index: 100; overflow-x: auto;">
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; white-space: nowrap;">
             <li><a href="#home" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Home</a></li>
             <li><a href="#about" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">About</a></li>
             <li><a href="#skills" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Skills</a></li>
             <li><a href="#education" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Education</a></li>
+            <li><a href="#contact" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Contact</a></li>
         </ul>
     </nav>
     <!-- Home Section -->
@@ -42,9 +47,7 @@
                 </div>
                 <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
                     <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Email:</span> <a href="mailto:jerinsigi@gmail.com" style="color: #00FFB9; text-decoration: none;" onmouseover="this.style.color='#FF007A';" onmouseout="this.style.color='#00FFB9';">jerinsigi@gmail.com</a>
-
-                   
-            </div>
+                </div>
                 <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
                     <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">City:</span> Changanassery, Kerala, India
                 </div>
@@ -62,18 +65,15 @@
     <section id="skills" class="section" style="min-height: 100vh; padding: 100px 20px; text-align: center;">
         <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 40px;">Skills</h2>
         <div style="display: flex; flex-direction: column; gap: 30px; max-width: 600px; margin: 0 auto;">
-            <!-- HTML/CSS Skill -->
             <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <h3 style="font-size: 24px; margin: 0;">HTML/CSS</h3>
                     <span class="skill-percentage" data-target="90" style="font-size: 18px; color: #00FFB9;">0%</span>
                 </div>
                 <div class="progress-bar" style="height: 10px; background: #333; border-radius: 5px; overflow: hidden; position: relative;">
-                    <div class="progress-fill" data-percentage="90" style="width: 0%; height: 100%; background: linear-gradient(90deg, #00FFB9, #FF007A); transition: width 2s ease-in-out;position: absolute; top: 0; left: 0; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7);"></div>
+                    <div class="progress-fill" data-percentage="90" style="width: 0%; height: 100%; background: linear-gradient(90deg, #00FFB9, #FF007A); transition: width 2s ease-in-out; position: absolute; top: 0; left: 0; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7);"></div>
                 </div>
             </div>
-
-            <!-- JavaScript Skill -->
             <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <h3 style="font-size: 24px; margin: 0;">JavaScript</h3>
@@ -83,8 +83,6 @@
                     <div class="progress-fill" data-percentage="80" style="width: 0%; height: 100%; background: linear-gradient(90deg, #00FFB9, #FF007A); transition: width 2s ease-in-out; position: absolute; top: 0; left: 0; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7);"></div>
                 </div>
             </div>
-
-            <!-- Entrepreneurship Skill -->
             <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <h3 style="font-size: 24px; margin: 0;">Entrepreneurship</h3>
@@ -94,10 +92,7 @@
                     <div class="progress-fill" data-percentage="70" style="width: 0%; height: 100%; background: linear-gradient(90deg, #00FFB9, #FF007A); transition: width 2s ease-in-out; position: absolute; top: 0; left: 0; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7);"></div>
                 </div>
             </div>
-
-            <!-- IoT Skill -->
-            
-                   <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+            <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <h3 style="font-size: 24px; margin: 0;">IoT</h3>
                     <span class="skill-percentage" data-target="70" style="font-size: 18px; color: #00FFB9;">0%</span>
@@ -108,14 +103,11 @@
             </div>
         </div>
     </section>
-    <!-- Education Section (Updated with Timeline) -->
+    <!-- Education Section -->
     <section id="education" class="section" style="min-height: 100vh; padding: 100px 20px; text-align: center;">
         <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 40px;">Education</h2>
         <div class="timeline-container" style="max-width: 800px; margin: 0 auto; text-align: left; position: relative;">
-            <!-- Timeline Line -->
             <div style="position: absolute; width: 4px; background: #00FFB9; height: 100%; left: 20px; top: 0; opacity: 0.3;"></div>
-
-            <!-- Bachelor's Degree -->
             <div class="timeline-item" style="position: relative; margin-bottom: 40px; padding-left: 60px; opacity: 0; animation: slideInLeft 1s ease-in-out forwards; animation-delay: 0.2s;">
                 <div class="timeline-circle" style="position: absolute; left: 12px; top: 5px; width: 20px; height: 20px; background: #00FFB9; border-radius: 50%; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.3)';" onmouseout="this.style.transform='scale(1)';"></div>
                 <div class="timeline-content" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
@@ -124,8 +116,6 @@
                     <p style="font-size: 16px; color: #AAAAAA;">Graduating with a focus on technology.</p>
                 </div>
             </div>
-
-            <!-- Higher Secondary -->
             <div class="timeline-item" style="position: relative; margin-bottom: 40px; padding-left: 60px; opacity: 0; animation: slideInLeft 1s ease-in-out forwards; animation-delay: 0.4s;">
                 <div class="timeline-circle" style="position: absolute; left: 12px; top: 5px; width: 20px; height: 20px; background: #00FFB9; border-radius: 50%; box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.3)';" onmouseout="this.style.transform='scale(1)';"></div>
                 <div class="timeline-content" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
@@ -133,6 +123,22 @@
                     <p style="font-size: 18px; font-weight: 300; margin: 5px 0; color: #00FFB9;">CBSE | 2021 - 2023</p>
                     <p style="font-size: 16px; color: #AAAAAA;">Specialized in Science and Mathematics.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="min-height: 100vh; padding: 100px 20px; text-align: center;">
+        <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 40px; animation: glow 2s infinite ease-in-out;">Contact Me</h2>
+        <div class="contact-container" style="max-width: 600px; margin: 0 auto; background: #1A1A1A; padding: 40px; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 255, 185, 0.3); animation: slideInUp 1s ease-in-out forwards;">
+            <p style="font-size: 18px; font-weight: 300; margin-bottom: 30px; color: #AAAAAA;">Feel free to reach out! I’d love to hear from you.</p>
+            <form id="contact-form" action="https://formspree.io/f/movevjqd" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+                <input type="text" name="name" placeholder="Your Name" required style="padding: 15px; font-size: 16px; background: #333; border: none; border-radius: 5px; color: #FFFFFF; transition: all 0.3s ease-in-out;" onfocus="this.style.boxShadow='0 0 10px rgba(0, 255, 185, 0.7)';" onblur="this.style.boxShadow='none';">
+                <input type="email" name="email" placeholder="Your Email" required style="padding: 15px; font-size: 16px; background: #333; border: none; border-radius: 5px; color: #FFFFFF; transition: all 0.3s ease-in-out;" onfocus="this.style.boxShadow='0 0 10px rgba(0, 255, 185, 0.7)';" onblur="this.style.boxShadow='none';">
+                <textarea name="message" placeholder="Your Message" rows="5" required style="padding: 15px; font-size: 16px; background: #333; border: none; border-radius: 5px; color: #FFFFFF; resize: none; transition: all 0.3s ease-in-out;" onfocus="this.style.boxShadow='0 0 10px rgba(0, 255, 185, 0.7)';" onblur="this.style.boxShadow='none';"></textarea>
+                <button type="submit" style="padding: 15px; font-size: 18px; font-weight: 500; background: linear-gradient(90deg, #00FFB9, #FF007A); border: none; border-radius: 5px; color: #FFFFFF; cursor: pointer; transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 15px rgba(0, 255, 185, 0.7)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">Send Message</button>
+            </form>
+            <div id="confirmation" style="display: none; margin-top: 20px; font-size: 18px; color: #00FFB9; animation: fadeIn 1s ease-in-out forwards;">
+                Thank you! Your message has been sent successfully.
             </div>
         </div>
     </section>
@@ -150,48 +156,17 @@
     </footer>
     <!-- Inline CSS Animations -->
     <style>
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes float {
-            0% { transform: translateY(0) translateX(0); opacity: 0.8; }
-            50% { transform: translateY(-50vh) translateX(20px); opacity: 0.5; }
-            100% { transform: translateY(-100vh) translateX(-10px); opacity: 0; }
-        }
-        @keyframes rotateGlow {
-            0% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0.7); }
-            50% { transform: rotate(10deg) scale(1.05); box-shadow: 0 0 15px 5px rgba(0, 255, 185, 0.5); }
-            100% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0); }
-        }
-        @keyframes glow {
-        0% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); }
-            50% { text-shadow: 0 0 15px rgba(0, 255, 185, 0.8), 0 0 25px rgba(0, 255, 185, 0.5); }
-            100% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); }
-        }
-        @keyframes floatSkill {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); }
-            50% { box-shadow: 0 0 20px rgba(0, 255, 185, 1); }
-            100% { box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0% { transform: translateY(0) translateX(0); opacity: 0.8; } 50% { transform: translateY(-50vh) translateX(20px); opacity: 0.5; } 100% { transform: translateY(-100vh) translateX(-10px); opacity: 0; } }
+        @keyframes rotateGlow { 0% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0.7); } 50% { transform: rotate(10deg) scale(1.05); box-shadow: 0 0 15px 5px rgba(0, 255, 185, 0.5); } 100% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0); } }
+        @keyframes glow { 0% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); } 50% { text-shadow: 0 0 15px rgba(0, 255, 185, 0.8), 0 0 25px rgba(0, 255, 185, 0.5); } 100% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); } }
+        @keyframes floatSkill { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+        @keyframes pulse { 0% { box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); } 50% { box-shadow: 0 0 20px rgba(0, 255, 185, 1); } 100% { box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); } }
         html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
         .bubble { will-change: transform; }
         .skill-box.clicked { animation: rotateGlow 0.6s ease-in-out; }
         .edu-box { opacity: 0.9; }
@@ -199,117 +174,106 @@
         .section.visible { opacity: 1; }
         .section.visible > * { animation: slideInUp 1s ease-in-out forwards; }
         .progress-fill:hover, .skill-percentage:hover { animation: pulse 1s infinite ease-in-out; }
-
-        /* Responsive Navigation */
-        @media (max-width: 600px) {
-            nav {
-                padding: 15px;
-            }
-            nav ul {
-                gap: 20px;
-            }
-            nav ul li a {
-                font-size: 14px;
-            }
+        nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        nav ul { flex-wrap: wrap; white-space: nowrap; }
+        .contact-container { opacity: 0; transition: opacity 0.3s ease-in-out; }
+        .section.visible .contact-container { opacity: 1; }
+        input:focus, textarea:focus { outline: none; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; transform: scale(1) !important; box-shadow: none !important; }
+        @media (max-width: 768px) {
+            nav { padding: 15px; }
+            nav ul { gap: 20px; }
+            nav ul li a { font-size: 14px; }
         }
-        @media (max-width: 400px) {
-            nav ul {
-                gap: 10px;
-            }
-            nav ul li a {
-                font-size: 12px;
-            }
+        @media (max-width: 480px) {
+            nav { padding: 10px; }
+            nav ul { gap: 15px; }
+            nav ul li a { font-size: 12px; }
+            .skill-box { padding: 15px; }
+            .skill-box h3 { font-size: 20px; }
+            .skill-percentage { font-size: 16px; }
+            .progress-bar { height: 8px; }
+            .contact-container { padding: 20px; }
+            #contact h2 { font-size: 28px; }
+            #contact-form input, #contact-form textarea, #contact-form button { font-size: 14px; padding: 10px; }
         }
-        @media (max-width: 600px) {
-        .skill-box {
-                padding: 15px;
-            }
-            .skill-box h3 {
-                font-size: 20px;
-            }
-            .skill-percentage {
-                font-size: 16px;
-            }
-            .progress-bar {
-                height: 8px;
-            }
+        @media (max-width: 320px) {
+            nav ul { gap: 10px; }
+            nav ul li a { font-size: 10px; }
         }
     </style>
-    <!-- Inline JavaScript for Scroll, Typewriter Effects, Age Calculation, and Skill Animations -->
+    <!-- Inline JavaScript -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Slide-Up Animation for Sections
             const sections = document.querySelectorAll(".section");
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add("visible");
                 });
             }, { threshold: 0.1 });
             sections.forEach(section => observer.observe(section));
 
-            // Click Animation for Skill Boxes
             const skillBoxes = document.querySelectorAll(".skill-box");
             skillBoxes.forEach(box => {
                 box.addEventListener("click", () => {
                     box.classList.add("clicked");
-                    setTimeout(() => {
-                        box.classList.remove("clicked");
-                    }, 600);
+                    setTimeout(() => box.classList.remove("clicked"), 600);
                 });
             });
 
-            // Typewriter Effect
             const typewriter = document.getElementById("typewriter");
             const phrases = ["Tech Enthusiast", "Developer"];
             let phraseIndex = 0;
             let charIndex = 0;
-        let isDeleting = false;
+            let isDeleting = false;
+            let lastTime = 0;
+            const typingSpeed = 150;
+            const deletingSpeed = 100;
+            const pauseDuration = 1000;
 
-            function type() {
+            function type(timestamp) {
+                if (!lastTime) lastTime = timestamp;
+                const delta = timestamp - lastTime;
                 const currentPhrase = phrases[phraseIndex];
-                if (!isDeleting) {
-                    typewriter.textContent = currentPhrase.substring(0, charIndex + 1);
-                    charIndex++;
-                    if (charIndex === currentPhrase.length) {
-                        setTimeout(() => isDeleting = true, 1000);
-                    }
-                } else {
-                    typewriter.textContent = currentPhrase.substring(0, charIndex - 1);
-                    charIndex--;
-                    if (charIndex === 0) {
-                        isDeleting = false;
-                        phraseIndex = (phraseIndex + 1) % phrases.length;
-                    }
-                }
-                setTimeout(type, isDeleting ? 100 : 150);
-            }
-            type();
+                let delay = isDeleting ? deletingSpeed : typingSpeed;
 
-            // Calculate and Update Age
+                if (delta >= delay) {
+                    if (!isDeleting) {
+                        typewriter.textContent = currentPhrase.substring(0, charIndex + 1);
+                        charIndex++;
+                        if (charIndex === currentPhrase.length) {
+                            setTimeout(() => { isDeleting = true; }, pauseDuration);
+                        }
+                    } else {
+                        typewriter.textContent = currentPhrase.substring(0, charIndex - 1);
+                        charIndex--;
+                        if (charIndex === 0) {
+                            isDeleting = false;
+                            phraseIndex = (phraseIndex + 1) % phrases.length;
+                        }
+                    }
+                    lastTime = timestamp;
+                }
+                requestAnimationFrame(type);
+            }
+            requestAnimationFrame(type);
+
             function calculateAge(birthday) {
                 const today = new Date();
                 const birthDate = new Date(birthday);
                 let age = today.getFullYear() - birthDate.getFullYear();
                 const monthDiff = today.getMonth() - birthDate.getMonth();
                 const dayDiff = today.getDate() - birthDate.getDate();
-
-                if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
-                    age--;
-                }
+                if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) age--;
                 return age;
             }
-
             const birthday = "2005-05-13";
             const ageElement = document.getElementById("age");
-            const age = calculateAge(birthday);
-            ageElement.textContent = age;
+            ageElement.textContent = calculateAge(birthday);
 
-            // Animate Progress Bars and Percentage Counters
             const progressBars = document.querySelectorAll(".progress-fill");
             const percentageElements = document.querySelectorAll(".skill-percentage");
-           const animatePercentage = (element, target) => {
+            const animatePercentage = (element, target) => {
                 let current = 0;
                 const increment = target / 100;
                 const interval = setInterval(() => {
@@ -321,7 +285,6 @@
                     element.textContent = Math.round(current) + "%";
                 }, 20);
             };
-
             const skillsObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -329,19 +292,45 @@
                             const percentage = bar.getAttribute("data-percentage");
                             bar.style.width = percentage + "%";
                         });
-
                         percentageElements.forEach(element => {
                             const target = parseInt(element.getAttribute("data-target"));
                             animatePercentage(element, target);
                         });
-
                         skillsObserver.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.5 });
-
             const skillsSection = document.querySelector("#skills");
             skillsObserver.observe(skillsSection);
+
+            const contactForm = document.getElementById("contact-form");
+            const confirmation = document.getElementById("confirmation");
+            contactForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const submitButton = contactForm.querySelector("button");
+                submitButton.disabled = true;
+
+                try {
+                    const response = await fetch("https://formspree.io/f/movevjqd", {
+                        method: "POST",
+                        body: new FormData(contactForm),
+                        headers: { "Accept": "application/json" }
+                    });
+                    if (response.ok) {
+                        contactForm.style.display = "none";
+                        confirmation.style.display = "block";
+                    } else {
+                        throw new Error("Submission failed");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    confirmation.textContent = "Oops! Something went wrong. Please try again.";
+                    confirmation.style.color = "#FF007A";
+                    confirmation.style.display = "block";
+                } finally {
+                    submitButton.disabled = false;
+                }
+            });
         });
     </script>
 </body>
