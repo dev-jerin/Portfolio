@@ -9,17 +9,18 @@
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Jerin Sigi - Portfolio">
     <meta property="og:description" content="Portfolio of Jerin Sigi, a tech enthusiast and developer specializing in programming, cloud computing, and IoT.">
-    <meta property="og:image" content="https://example.com/jerin-sigi-profile.jpg"> <!-- Replace with actual image URL -->
-    <meta property="og:url" content="https://jerin-s05.github.io/Portfolio/"> <!-- Replace with your site URL -->
+    <meta property="og:image" content="https://example.com/jerin-sigi-profile.jpg">
+    <meta property="og:url" content="https://jerin-s05.github.io/Portfolio/">
     <meta property="og:type" content="website">
     <title>Jerin Sigi - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="/Portfolio/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/Portfolio/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/Portfolio/favicon/favicon-16x16.png">
-<link rel="manifest" href="Portfolio/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Portfolio/favicon/apple-touch-icon.png" loading="lazy">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Portfolio/favicon/favicon-32x32.png" loading="lazy">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Portfolio/favicon/favicon-16x16.png" loading="lazy">
+    <link rel="manifest" href="/Portfolio/favicon/site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body style="margin: 0; padding: 0; background: #000000; color: #FFFFFF; font-family: 'Poppins', sans-serif; overflow-x: hidden; position: relative; animation: fadeIn 1s ease-in-out forwards;">
+<body>
     <!-- Background Bubble Animation -->
     <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1;">
         <div class="bubble" style="position: absolute; width: 20px; height: 20px; background: rgba(0, 255, 185, 0.3); border-radius: 50%; animation: float 6s infinite ease-in-out; bottom: -20px; left: 10%; transform: translateZ(0);"></div>
@@ -37,10 +38,14 @@
             <li><a href="#education" aria-label="Go to Education section" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Education</a></li>
             <li><a href="#contact" aria-label="Go to Contact section" style="color: #FFFFFF; text-decoration: none; font-weight: 500; transition: all 0.3s ease-in-out; font-size: 16px;" onmouseover="this.style.color='#00FFB9';" onmouseout="this.style.color='#FFFFFF';">Contact</a></li>
         </ul>
+        <button id="theme-toggle" aria-label="Toggle theme" style="background: none; border: none; cursor: pointer; margin-left: 20px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF" class="sun-icon"><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m16.36-6.36l-1.42 1.42M7.06 17.06l-1.42 1.42M18.36 18.36l-1.42-1.42M5.64 5.64l1.42-1.42M12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF" class="moon-icon" style="display: none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
     </nav>
     <!-- Home Section -->
     <section id="home" class="section" style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
-        <h1 style="font-size: 48px; font-weight: 700; margin-bottom: 20px;">Hi, I’m <span style="color: #00FFB9; position: relative; display: inline-block; animation: glow 2s infinite ease-in-out;">Jerin Sigi</span></h1>
+        <h1 style="font-size: 48px; font-weight: 700; margin-bottom: 20px;">Hi, I'm <span style="color: #00FFB9; position: relative; display: inline-block; animation: glow 2s infinite ease-in-out;">Jerin Sigi</span></h1>
         <div style="height: 40px; overflow: hidden; display: flex; align-items: center;">
             <p id="typewriter" style="font-size: 24px; font-weight: 300; margin: 0; white-space: nowrap;"></p>
         </div>
@@ -50,23 +55,23 @@
         <div style="max-width: 500px; animation: slideInLeft 1s ease-in-out forwards;">
             <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 20px;">About Me</h2>
             <p style="font-size: 18px; font-weight: 300; line-height: 1.6; margin-bottom: 30px;">
-                As a passionate technology enthusiast, I’m pursuing a Bachelor’s degree at Mahatma Gandhi University, focusing on programming, cloud computing, and product innovation. Through hands-on experience with Infosys Springboard and ITRONIX SOLUTION, I’ve honed skills in C/C++ programming, web/mobile app development, and IoT. My certifications in AI, cloud computing, and strategic thinking underscore my dedication to continuous learning and impactful tech solutions. I aim to build scalable, innovative systems that solve real-world problems.
+                As a passionate technology enthusiast, I'm pursuing a Bachelor's degree at Mahatma Gandhi University, focusing on programming, cloud computing, and product innovation. Through hands-on experience with Infosys Springboard and ITRONIX SOLUTION, I've honed skills in C/C++ programming, web/mobile app development, and IoT. My certifications in AI, cloud computing, and strategic thinking underscore my dedication to continuous learning and impactful tech solutions. I aim to build scalable, innovative systems that solve real-world problems.
             </p>
             <div class="details-container" style="background: #1A1A1A; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 255, 185, 0.3);">
                 <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
-                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Birthday:</span> 13 May 2005
+                    <span style="color: #00FFB9; font-weight: 500;">></span> <span class="detail-label" style="color: #FFFFFF;">Birthday:</span> <span class="detail-value" style="color: #FFFFFF;">13 May 2005</span>
                 </div>
                 <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
-                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Email:</span> <a href="mailto:jerinsigi@gmail.com" style="color: #00FFB9; text-decoration: none;" onmouseover="this.style.color='#FF007A';" onmouseout="this.style.color='#00FFB9';">jerinsigi@gmail.com</a>
+                    <span style="color: #00FFB9; font-weight: 500;">></span> <span class="detail-label" style="color: #FFFFFF;">Email:</span> <a href="mailto:jerinsigi@gmail.com" style="color: #00FFB9; text-decoration: none;" onmouseover="this.style.color='#FF007A';" onmouseout="this.style.color='#00FFB9';">jerinsigi@gmail.com</a>
                 </div>
                 <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
-                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">City:</span> Changanassery, Kerala, India
+                    <span style="color: #00FFB9; font-weight: 500;">></span> <span class="detail-label" style="color: #FFFFFF;">City:</span> <span class="detail-value" style="color: #FFFFFF;">Changanassery, Kerala, India</span>
                 </div>
                 <div class="detail-item" style="margin-bottom: 15px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
-                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Age:</span> <span id="age">19</span>
+                    <span style="color: #00FFB9; font-weight: 500;">></span> <span class="detail-label" style="color: #FFFFFF;">Age:</span> <span id="age" class="detail-value" style="color: #FFFFFF;">19</span>
                 </div>
                 <div class="detail-item" style="transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='translateX(10px)';" onmouseout="this.style.transform='translateX(0)';">
-                    <span style="color: #00FFB9; font-weight: 500;">></span> <span style="color: #FFFFFF;">Degree:</span> UG
+                    <span style="color: #00FFB9; font-weight: 500;">></span> <span class="detail-label" style="color: #FFFFFF;">Degree:</span> <span class="detail-value" style="color: #FFFFFF;">UG</span>
                 </div>
             </div>
         </div>
@@ -78,7 +83,7 @@
         <div style="display: flex; flex-direction: column; gap: 30px; max-width: 600px; margin: 0 auto;">
             <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <h3 style="font-size: 24px; margin: 0;">HTML/CSS</h3>
+                    <h3 style="font-size: 24px; margin: 0; color: #FFFFFF;">HTML/CSS</h3>
                     <span class="skill-percentage" data-target="90" style="font-size: 18px; color: #00FFB9;">0%</span>
                 </div>
                 <div class="progress-bar" style="height: 10px; background: #333; border-radius: 5px; overflow: hidden; position: relative;">
@@ -87,7 +92,7 @@
             </div>
             <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <h3 style="font-size: 24px; margin: 0;">JavaScript</h3>
+                    <h3 style="font-size: 24px; margin: 0; color: #FFFFFF;">JavaScript</h3>
                     <span class="skill-percentage" data-target="80" style="font-size: 18px; color: #00FFB9;">0%</span>
                 </div>
                 <div class="progress-bar" style="height: 10px; background: #333; border-radius: 5px; overflow: hidden; position: relative;">
@@ -96,7 +101,7 @@
             </div>
             <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <h3 style="font-size: 24px; margin: 0;">Entrepreneurship</h3>
+                    <h3 style="font-size: 24px; margin: 0; color: #FFFFFF;">Entrepreneurship</h3>
                     <span class="skill-percentage" data-target="70" style="font-size: 18px; color: #00FFB9;">0%</span>
                 </div>
                 <div class="progress-bar" style="height: 10px; background: #333; border-radius: 5px; overflow: hidden; position: relative;">
@@ -105,7 +110,7 @@
             </div>
             <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <h3 style="font-size: 24px; margin: 0;">IoT</h3>
+                    <h3 style="font-size: 24px; margin: 0; color: #FFFFFF;">IoT</h3>
                     <span class="skill-percentage" data-target="70" style="font-size: 18px; color: #00FFB9;">0%</span>
                 </div>
                 <div class="progress-bar" style="height: 10px; background: #333; border-radius: 5px; overflow: hidden; position: relative;">
@@ -114,7 +119,7 @@
             </div>
             <div class="skill-box" style="background: #1A1A1A; padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <h3 style="font-size: 24px; margin: 0;">C/C++</h3>
+                    <h3 style="font-size: 24px; margin: 0; color: #FFFFFF;">C/C++</h3>
                     <span class="skill-percentage" data-target="90" style="font-size: 18px; color: #00FFB9;">0%</span>
                 </div>
                 <div class="progress-bar" style="height: 10px; background: #333; border-radius: 5px; overflow: hidden; position: relative;">
@@ -150,7 +155,7 @@
     <section id="contact" class="section" style="min-height: 100vh; padding: 100px 20px; text-align: center;">
         <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 40px; animation: glow 2s infinite ease-in-out;">Contact Me</h2>
         <div class="contact-container" style="max-width: 600px; margin: 0 auto; background: #1A1A1A; padding: 40px; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 255, 185, 0.3); animation: slideInUp 1s ease-in-out forwards;">
-            <p style="font-size: 18px; font-weight: 300; margin-bottom: 30px; color: #AAAAAA;">Feel free to reach out! I’d love to hear from you.</p>
+            <p style="font-size: 18px; font-weight: 300; margin-bottom: 30px; color: #AAAAAA;">Feel free to reach out! I'd love to hear from you.</p>
             <form id="contact-form" action="https://formspree.io/f/movevjqd" method="POST" style="display: flex; flex-direction: column; gap: 20px;" role="form">
                 <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required style="padding: 15px; font-size: 16px; background: #333; border: none; border-radius: 5px; color: #FFFFFF; transition: all 0.3s ease-in-out;" onfocus="this.style.boxShadow='0 0 10px rgba(0, 255, 185, 0.7)';" onblur="this.style.boxShadow='none';">
                 <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" required style="padding: 15px; font-size: 16px; background: #333; border: none; border-radius: 5px; color: #FFFFFF; transition: all 0.3s ease-in-out;" onfocus="this.style.boxShadow='0 0 10px rgba(0, 255, 185, 0.7)';" onblur="this.style.boxShadow='none';">
@@ -180,217 +185,10 @@
             </a>
         </div>
     </footer>
-    <!-- Inline CSS Animations -->
-    <style>
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes float { 0% { transform: translateY(0) translateX(0); opacity: 0.8; } 50% { transform: translateY(-50vh) translateX(20px); opacity: 0.5; } 100% { transform: translateY(-100vh) translateX(-10px); opacity: 0; } }
-        @keyframes rotateGlow { 0% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0.7); } 50% { transform: rotate(10deg) scale(1.05); box-shadow: 0 0 15px 5px rgba(0, 255, 185, 0.5); } 100% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0); } }
-        @keyframes glow { 0% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); } 50% { text-shadow: 0 0 15px rgba(0, 255, 185, 0.8), 0 0 25px rgba(0, 255, 185, 0.5); } 100% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); } }
-        @keyframes floatSkill { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
-        @keyframes pulse { 0% { box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); } 50% { box-shadow: 0 0 20px rgba(0, 255, 185, 1); } 100% { box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); } }
-        @keyframes buttonFloat { 0% { transform: translateY(0); opacity: 0.8; } 50% { transform: translateY(-20px); opacity: 0.4; } 100% { transform: translateY(-40px); opacity: 0; } }
-        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-        body { overflow-x: hidden; }
-        .bubble { will-change: transform; }
-        .skill-box.clicked { animation: rotateGlow 0.6s ease-in-out; }
-        .edu-box { opacity: 0.9; }
-        .section { opacity: 0; transition: opacity 0.3s ease-in-out; }
-        .section.visible { opacity: 1; }
-        .section.visible > * { animation: slideInUp 1s ease-in-out forwards; }
-        .progress-fill:hover, .skill-percentage:hover { animation: pulse 1s infinite ease-in-out; }
-        nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        nav ul { flex-wrap: wrap; white-space: nowrap; }
-        .contact-container { opacity: 0; transition: opacity 0.3s ease-in-out; }
-        .section.visible .contact-container { opacity: 1; }
-        input:focus, textarea:focus { outline: none; }
-        button:disabled { opacity: 0.5; cursor: not-allowed; transform: scale(1) !important; box-shadow: none !important; }
-        button:hover .button-bubble { display: block; }
-        @media (max-width: 768px) {
-            nav { padding: 15px; }
-            nav ul { gap: 20px; }
-            nav ul li a { font-size: 14px; }
-        }
-        @media (max-width: 480px) {
-            nav { padding: 10px; }
-            nav ul { gap: 15px; }
-            nav ul li a { font-size: 12px; }
-            .skill-box { padding: 15px; }
-            .skill-box h3 { font-size: 20px; }
-            .skill-percentage { font-size: 16px; }
-            .progress-bar { height: 8px; }
-            .contact-container { padding: 20px; }
-            #contact h2 { font-size: 28px; }
-            #contact-form input, #contact-form textarea, #contact-form button { font-size: 14px; padding: 10px; }
-        }
-        @media (max-width: 320px) {
-            nav ul { gap: 10px; }
-            nav ul li a { font-size: 10px; }
-        }
-    </style>
-    <!-- Inline JavaScript -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const sections = document.querySelectorAll(".section");
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        document.title = `Jerin Sigi - ${entry.target.id.charAt(0).toUpperCase() + entry.target.id.slice(1)}`;
-                    }
-                });
-            }, { threshold: 0.1 });
-            sections.forEach(section => observer.observe(section));
-
-            const skillBoxes = document.querySelectorAll(".skill-box");
-            skillBoxes.forEach(box => {
-                box.addEventListener("click", () => {
-                    box.classList.add("clicked");
-                    setTimeout(() => box.classList.remove("clicked"), 600);
-                });
-            });
-
-            const typewriter = document.getElementById("typewriter");
-            const phrases = ["Tech Enthusiast", "Developer"];
-            let phraseIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            let lastTime = 0;
-            const typingSpeed = 150;
-            const deletingSpeed = 100;
-            const pauseDuration = 1000;
-
-            function type(timestamp) {
-                if (!lastTime) lastTime = timestamp;
-                const delta = timestamp - lastTime;
-                const currentPhrase = phrases[phraseIndex];
-                let delay = isDeleting ? deletingSpeed : typingSpeed;
-
-                if (delta >= delay) {
-                    if (!isDeleting) {
-                        typewriter.innerHTML = currentPhrase.substring(0, charIndex + 1) + "<span style='color: #00FFB9;'>|</span>";
-                        charIndex++;
-                        if (charIndex === currentPhrase.length) {
-                            setTimeout(() => { isDeleting = true; }, pauseDuration);
-                        }
-                    } else {
-                        typewriter.innerHTML = currentPhrase.substring(0, charIndex - 1) + "<span style='color: #00FFB9;'>|</span>";
-                        charIndex--;
-                        if (charIndex === 0) {
-                            isDeleting = false;
-                            phraseIndex = (phraseIndex + 1) % phrases.length;
-                        }
-                    }
-                    lastTime = timestamp;
-                }
-                requestAnimationFrame(type);
-            }
-            requestAnimationFrame(type);
-
-            function calculateAge(birthday) {
-                const today = new Date();
-                const birthDate = new Date(birthday);
-                let age = today.getFullYear() - birthDate.getFullYear();
-                const monthDiff = today.getMonth() - birthDate.getMonth();
-                const dayDiff = today.getDate() - birthDate.getDate();
-                if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) age--;
-                return age >= 0 ? age : 0;
-            }
-            const birthday = "2005-05-13";
-            const ageElement = document.getElementById("age");
-            ageElement.textContent = calculateAge(birthday);
-
-            const progressBars = document.querySelectorAll(".progress-fill");
-            const percentageElements = document.querySelectorAll(".skill-percentage");
-            const animatePercentage = (element, target) => {
-                let current = 0;
-                const increment = target / 100;
-                const interval = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(interval);
-                    }
-                    element.textContent = Math.round(current) + "%";
-                }, 20);
-            };
-            const skillsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        progressBars.forEach(bar => {
-                            const percentage = bar.getAttribute("data-percentage");
-                            bar.style.width = percentage + "%";
-                        });
-                        percentageElements.forEach(element => {
-                            const target = parseInt(element.getAttribute("data-target"));
-                            animatePercentage(element, target);
-                        });
-                        skillsObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            const skillsSection = document.querySelector("#skills");
-            skillsObserver.observe(skillsSection);
-
-            const contactForm = document.getElementById("contact-form");
-            const confirmation = document.getElementById("confirmation");
-            contactForm.addEventListener("submit", async (e) => {
-                e.preventDefault();
-                const submitButton = contactForm.querySelector("button");
-                submitButton.disabled = true;
-
-                if (!navigator.onLine) {
-                    confirmation.textContent = "No internet connection. Please try again later.";
-                    confirmation.style.color = "#FF007A";
-                    confirmation.style.display = "block";
-                    setTimeout(() => { confirmation.style.display = "none"; }, 3000);
-                    submitButton.disabled = false;
-                    return;
-                }
-
-                try {
-                    const response = await fetch("https://formspree.io/f/movevjqd", {
-                        method: "POST",
-                        body: new FormData(contactForm),
-                        headers: { "Accept": "application/json" }
-                    });
-                    if (response.ok) {
-                        contactForm.reset();
-                        confirmation.textContent = "Thank you! Your message has been sent successfully.";
-                        confirmation.style.color = "#00FFB9";
-                        confirmation.style.display = "block";
-                        const bubbles = submitButton.querySelectorAll(".button-bubble");
-                        bubbles.forEach(bubble => bubble.style.display = "block");
-                        setTimeout(() => {
-                            confirmation.style.display = "none";
-                            bubbles.forEach(bubble => bubble.style.display = "none");
-                        }, 3000);
-                    } else {
-                        throw new Error("Submission failed: " + response.statusText);
-                    }
-                } catch (error) {
-                    console.error("Error:", error);
-                    confirmation.textContent = "Oops! Something went wrong. Please try again.";
-                    confirmation.style.color = "#FF007A";
-                    confirmation.style.display = "block";
-                    setTimeout(() => { confirmation.style.display = "none"; }, 3000);
-                } finally {
-                    submitButton.disabled = false;
-                }
-            });
-
-            const submitButton = document.querySelector("#contact-form button");
-            submitButton.addEventListener("mouseover", () => {
-                const bubbles = submitButton.querySelectorAll(".button-bubble");
-                bubbles.forEach(bubble => bubble.style.display = "block");
-            });
-            submitButton.addEventListener("mouseout", () => {
-                const bubbles = submitButton.querySelectorAll(".button-bubble");
-                bubbles.forEach(bubble => bubble.style.display = "none");
-            });
-        });
-    </script>
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" style="position: fixed; bottom: 20px; right: 20px; background: #00FFB9; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; opacity: 0; transition: opacity 0.3s ease-in-out; z-index: 100;" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 4l-8 8h6v8h4v-8h6l-8-8z"/></svg>
+    </button>
+    <script src="script.js" defer></script>
 </body>
 </html>
