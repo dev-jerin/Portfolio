@@ -99,13 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const subject = contactForm.querySelector('input[name="subject"]').value.trim();
         const message = contactForm.querySelector('textarea[name="message"]').value.trim();
 
-        if (name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || subject.length < 3 || message.length < 10) {
-            confirmation.textContent = "Please fill out all fields correctly.";
-            confirmation.style.color = "#FF007A";
-            confirmation.style.display = "block";
-            setTimeout(() => { confirmation.style.display = "none"; }, 3000);
-            submitButton.disabled = false;
-            return;
+        
         }
 
         try {
