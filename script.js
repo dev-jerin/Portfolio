@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Section Visibility
     const sections = document.querySelectorAll(".section");
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.1 });
     sections.forEach(section => observer.observe(section));
 
+    // Skill Box Interaction
     const skillBoxes = document.querySelectorAll(".skill-box");
     skillBoxes.forEach(box => {
         box.addEventListener("click", () => {
@@ -18,15 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Typewriter Effect
     const typewriter = document.getElementById("typewriter");
     const phrases = ["Tech Enthusiast", "Developer"];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let lastTime = 0;
-    const typingSpeed = 150;
-    const deletingSpeed = 100;
-    const pauseDuration = 1000;
+    let phraseIndex = 0, charIndex = 0, isDeleting = false, lastTime = 0;
+    const typingSpeed = 150, deletingSpeed = 100, pauseDuration = 1000;
 
     function type(timestamp) {
         if (!lastTime) lastTime = timestamp;
@@ -35,19 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
         let delay = isDeleting ? deletingSpeed : typingSpeed;
 
         if (delta >= delay) {
-            if (!isDeleting) {
-                typewriter.innerHTML = currentPhrase.substring(0, charIndex + 1) + "<span style='color: #00FFB9;'>|</span>";
-                charIndex++;
-                if (charIndex === currentPhrase.length) {
-                    setTimeout(() => { isDeleting = true; }, pauseDuration);
-                }
-            } else {
-                typewriter.innerHTML = currentPhrase.substring(0, charIndex - 1) + "<span style='color: #00FFB9;'>|</span>";
-                charIndex--;
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                }
+            typewriter.innerHTML = !isDeleting
+                ? currentPhrase.substring(0, charIndex + 1) + "<span style='color: #00FFB9;'>|</span>"
+                : currentPhrase.substring(0, charIndex - 1) + "<span style='color: #00FFB9;'>|</span>";
+            charIndex += isDeleting ? -1 : 1;
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => { isDeleting = true; }, pauseDuration);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
             }
             lastTime = timestamp;
         }
@@ -55,19 +49,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     requestAnimationFrame(type);
 
+    // Age Calculation
     function calculateAge(birthday) {
         const today = new Date();
         const birthDate = new Date(birthday);
         let age = today.getFullYear() - birthDate.getFullYear();
         const monthDiff = today.getMonth() - birthDate.getMonth();
-        const dayDiff = today.getDate() - birthDate.getDate();
-        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) age--;
-        return age >= 0 ? age : 0;
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) age--;
+        return age;
     }
-    const birthday = "2005-05-13";
-    const ageElement = document.getElementById("age");
-    ageElement.textContent = calculateAge(birthday);
+    document.getElementById("age").textContent = calculateAge("2005-05-13");
 
+    // Skills Progress Animation
     const progressBars = document.querySelectorAll(".progress-fill");
     const percentageElements = document.querySelectorAll(".skill-percentage");
     const animatePercentage = (element, target) => {
@@ -85,21 +78,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const skillsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                progressBars.forEach(bar => {
-                    const percentage = bar.getAttribute("data-percentage");
-                    bar.style.width = percentage + "%";
-                });
-                percentageElements.forEach(element => {
-                    const target = parseInt(element.getAttribute("data-target"));
-                    animatePercentage(element, target);
-                });
+                progressBars.forEach(bar => bar.style.width = bar.getAttribute("data-percentage") + "%");
+                percentageElements.forEach(element => animatePercentage(element, parseInt(element.getAttribute("data-target"))));
                 skillsObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.5 });
-    const skillsSection = document.querySelector("#skills");
-    skillsObserver.observe(skillsSection);
+    skillsObserver.observe(document.querySelector("#skills"));
 
+    // Contact Form Handling
     const contactForm = document.getElementById("contact-form");
     const confirmation = document.getElementById("confirmation");
     contactForm.addEventListener("submit", async (e) => {
@@ -112,44 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const subject = contactForm.querySelector('input[name="subject"]').value.trim();
         const message = contactForm.querySelector('textarea[name="message"]').value.trim();
 
-        if (name.length < 2) {
-            confirmation.textContent = "Name must be at least 2 characters long.";
-            confirmation.style.color = "#FF007A";
-            confirmation.style.display = "block";
-            setTimeout(() => { confirmation.style.display = "none"; }, 3000);
-            submitButton.disabled = false;
-            return;
-        }
-
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            confirmation.textContent = "Please enter a valid email address.";
-            confirmation.style.color = "#FF007A";
-            confirmation.style.display = "block";
-            setTimeout(() => { confirmation.style.display = "none"; }, 3000);
-            submitButton.disabled = false;
-            return;
-        }
-
-        if (subject.length < 3) {
-            confirmation.textContent = "Subject must be at least 3 characters long.";
-            confirmation.style.color = "#FF007A";
-            confirmation.style.display = "block";
-            setTimeout(() => { confirmation.style.display = "none"; }, 3000);
-            submitButton.disabled = false;
-            return;
-        }
-
-        if (message.length < 10) {
-            confirmation.textContent = "Message must be at least 10 characters long.";
-            confirmation.style.color = "#FF007A";
-            confirmation.style.display = "block";
-            setTimeout(() => { confirmation.style.display = "none"; }, 3000);
-            submitButton.disabled = false;
-            return;
-        }
-
-        if (!navigator.onLine) {
-            confirmation.textContent = "No internet connection. Please try again later.";
+        if (name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || subject.length < 3 || message.length < 10) {
+            confirmation.textContent = "Please fill out all fields correctly.";
             confirmation.style.color = "#FF007A";
             confirmation.style.display = "block";
             setTimeout(() => { confirmation.style.display = "none"; }, 3000);
@@ -175,11 +126,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     bubbles.forEach(bubble => bubble.style.display = "none");
                 }, 3000);
             } else {
-                throw new Error("Submission failed: " + response.statusText);
+                throw new Error("Submission failed");
             }
         } catch (error) {
-            console.error("Error:", error);
-            confirmation.textContent = "Oops! Something went wrong. Please try again.";
+            confirmation.textContent = "Oops! Something went wrong.";
             confirmation.style.color = "#FF007A";
             confirmation.style.display = "block";
             setTimeout(() => { confirmation.style.display = "none"; }, 3000);
@@ -188,65 +138,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    const submitButton = document.querySelector("#contact-form button");
-    submitButton.addEventListener("mouseover", () => {
-        const bubbles = submitButton.querySelectorAll(".button-bubble");
-        bubbles.forEach(bubble => bubble.style.display = "block");
-    });
-    submitButton.addEventListener("mouseout", () => {
-        const bubbles = submitButton.querySelectorAll(".button-bubble");
-        bubbles.forEach(bubble => bubble.style.display = "none");
-    });
-
-    // Enhanced Navigation
+    // Navigation Enhancement
     const navLinks = document.querySelectorAll("nav ul li a");
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 navLinks.forEach(link => {
-                    link.classList.remove("active");
-                    const href = link.getAttribute("href").substring(1);
-                    if (href === entry.target.id) {
-                        link.classList.add("active");
-                    }
+                    link.classList.toggle("active", link.getAttribute("href").substring(1) === entry.target.id);
                 });
             }
         });
-    }, { threshold: 0.3 }); // Lowered threshold for better detection
+    }, { threshold: 0.3 });
     sections.forEach(section => sectionObserver.observe(section));
 
-    // Dark/Light Mode Toggle
-    const themeToggle = document.getElementById("theme-toggle");
-    const sunIcon = themeToggle.querySelector(".sun-icon");
-    const moonIcon = themeToggle.querySelector(".moon-icon");
-
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-        if (document.body.classList.contains("light-mode")) {
-            sunIcon.style.display = "none";
-            moonIcon.style.display = "block";
-        } else {
-            sunIcon.style.display = "block";
-            moonIcon.style.display = "none";
-        }
-        localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
-    });
-
-    if (localStorage.getItem("theme") === "light") {
-        document.body.classList.add("light-mode");
-        sunIcon.style.display = "none";
-        moonIcon.style.display = "block";
-    }
-
     // Scroll to Top
+    function debounce(func, wait) {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func(...args), wait);
+        };
+    }
     const scrollTopBtn = document.getElementById("scroll-top");
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            scrollTopBtn.classList.add("visible");
-        } else {
-            scrollTopBtn.classList.remove("visible");
-        }
-    });
+    window.addEventListener("scroll", debounce(() => {
+        scrollTopBtn.classList.toggle("visible", window.scrollY > 300);
+    }, 100));
     scrollTopBtn.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
