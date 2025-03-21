@@ -135,6 +135,8 @@ nav ul li a.active { color: #00FFB9; border-bottom: 2px solid #00FFB9; padding-b
 .button-bubble { position: absolute; width: 8px; height: 8px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; bottom: 5px; animation: buttonFloat 1.5s ease-in-out infinite; display: none; }
 #contact-form button:hover .button-bubble { display: block; }
 #confirmation { display: none; margin-top: 20px; font-size: 18px; animation: fadeIn 1s ease-in-out forwards; }
+#contact-form .error { display: block; margin-top: 5px; font-size: 14px; color: #FF007A; }
+#contact-form input.invalid, #contact-form textarea.invalid { box-shadow: 0 0 5px rgba(255, 0, 122, 0.7); }
 
 /* Footer */
 footer { padding: 20px; text-align: center; background: #1A1A1A; color: #AAAAAA; font-size: 14px; }
@@ -183,4 +185,4 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
 @media (max-width: 320px) {
     nav ul { gap: 10px; }
     nav ul li a { font-size: 10px; }
-                   }
+                       }
