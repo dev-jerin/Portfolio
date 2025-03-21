@@ -89,6 +89,92 @@ document.addEventListener("DOMContentLoaded", () => {
     // Contact Form Handling
     const contactForm = document.getElementById("contact-form");
     const confirmation = document.getElementById("confirmation");
+
+    // Function to create or get error span for an input
+    function getErrorSpan(input) {
+        let errorSpan = input.nextElementSibling;
+        if (!errorSpan || !errorSpan.classList.contains("error")) {
+            errorSpan = document.createElement("span");
+            errorSpan.classList.add("error");
+            errorSpan.style.color = "#FF007A";
+            errorSpan.style.fontSize = "14px";
+            input.insertAdjacentElement("afterend", errorSpan);
+        }
+        return errorSpan;
+    }
+
+    // Real-time validation for each input
+    const inputs = contactForm.querySelectorAll("input, textarea");
+    inputs.forEach(input => {
+        input.addEventListener("input", () => {
+            const value = input.value.trim();
+            const errorSpan = getErrorSpan(input);
+
+            switch (input.name) {
+                case "name":
+                    if (!value) {
+                        errorSpan.textContent = "Name is required.";
+                    } else if (!/^[a-zA-Z\s-]{2,50}$/.test(value)) {
+                        if (value.length < 2) {
+                            errorSpan.textContent = "Name must be at least 2 characters long.";
+                        } else if (value.length > 50) {
+                            errorSpan.textContent = "Name must be 50 characters or less.";
+                        } else {
+                            errorSpan.textContent = "Name can only contain letters, spaces, or hyphens.";
+                        }
+                    } else {
+                        errorSpan.textContent = "";
+                    }
+                    break;
+
+                case "email":
+                    if (!value) {
+                        errorSpan.textContent = "Email is required.";
+                    } else if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(value)) {
+                        errorSpan.textContent = "Please enter a valid email (e.g., user@domain.com).";
+                    } else {
+                        errorSpan.textContent = "";
+                    }
+                    break;
+
+                case "subject":
+                    if (!value) {
+                        errorSpan.textContent = "Subject is required.";
+                    } else if (!/^[\w\s.,!?()-]{3,100}$/.test(value)) {
+                        if (value.length < 3) {
+                            errorSpan.textContent = "Subject must be at least 3 characters long.";
+                        } else if (value.length > 100) {
+                            errorSpan.textContent = "Subject must be 100 characters or less.";
+                        } else {
+                            errorSpan.textContent = "Subject can only contain letters, numbers, or basic punctuation.";
+                        }
+                    } else {
+                        errorSpan.textContent = "";
+                    }
+                    break;
+
+                case "message":
+                    if (!value) {
+                        errorSpan.textContent = "Message is required.";
+                    } else if (!/^[\s\S]{5,1000}$/.test(value)) {
+                        if (value.length < 5) {
+                            errorSpan.textContent = `Message must be at least 5 characters long. (Currently ${value.length} characters)`;
+                        } else if (value.length > 1000) {
+                            errorSpan.textContent = "Message must be 1000 characters or less.";
+                        }
+                    } else {
+                        errorSpan.textContent = "";
+                    }
+                    break;
+
+                default:
+                    errorSpan.textContent = "";
+            }
+            input.classList.toggle("invalid", errorSpan.textContent !== "");
+        });
+    });
+
+    // Submission handling
     contactForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const submitButton = contactForm.querySelector("button");
@@ -99,8 +185,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const subject = contactForm.querySelector('input[name="subject"]').value.trim();
         const message = contactForm.querySelector('textarea[name="message"]').value.trim();
 
-        if (name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || subject.length < 3 || message.length < 5) {
-            confirmation.textContent = "Please fill out all fields correctly.";
+        const nameValid = /^[a-zA-Z\s-]{2,50}$/.test(name);
+        const emailValid = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(email);
+        const subjectValid = /^[\w\s.,!?()-]{3,100}$/.test(subject);
+        const messageValid = /^[\s\S]{5,1000}$/.test(message);
+
+        if (!nameValid || !emailValid || !subjectValid || !messageValid) {
+            confirmation.textContent = "Please fix the errors above before submitting.";
             confirmation.style.color = "#FF007A";
             confirmation.style.display = "block";
             setTimeout(() => { confirmation.style.display = "none"; }, 3000);
@@ -129,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error("Submission failed");
             }
         } catch (error) {
-            confirmation.textContent = "Oops! Something went wrong.";
+            confirmation.textContent = "Oops! Something went wrong. Please try again later.";
             confirmation.style.color = "#FF007A";
             confirmation.style.display = "block";
             setTimeout(() => { confirmation.style.display = "none"; }, 3000);
