@@ -11,12 +11,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.1 });
     sections.forEach(section => observer.observe(section));
 
+    // Hamburger Menu
+    const hamburger = document.querySelector(".hamburger");
+    const navUl = document.querySelector("nav ul");
+    if (hamburger && navUl) {
+        hamburger.addEventListener("click", () => {
+            navUl.classList.toggle("active");
+            console.log("Hamburger clicked, navUl classList:", navUl.classList); // Debug
+        });
+    } else {
+        console.error("Hamburger or navUl not found");
+    }
+
     // Skill Box Interaction
     const skillBoxes = document.querySelectorAll(".skill-box");
     skillBoxes.forEach(box => {
-        box.addEventListener("click", () => {
+        const handleInteraction = () => {
             box.classList.add("clicked");
             setTimeout(() => box.classList.remove("clicked"), 600);
+        };
+        box.addEventListener("click", handleInteraction);
+        box.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                handleInteraction();
+            }
         });
     });
 
@@ -89,6 +108,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Contact Form Handling
     const contactForm = document.getElementById("contact-form");
     const confirmation = document.getElementById("confirmation");
+
+    // Character Counter
+    const messageInput = contactForm.querySelector('textarea[name="message"]');
+    const counter = document.createElement("span");
+    counter.style.fontSize = "12px";
+    counter.style.color = "#AAAAAA";
+    counter.style.display = "block";
+    counter.style.marginTop = "5px";
+    messageInput.insertAdjacentElement("afterend", counter);
+    messageInput.addEventListener("input", () => {
+        counter.textContent = `${messageInput.value.length}/1000 characters`;
+    });
 
     // Function to create or get error span for an input
     function getErrorSpan(input) {
