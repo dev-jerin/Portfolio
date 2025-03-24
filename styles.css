@@ -26,24 +26,21 @@ nav {
     background: rgba(0, 0, 0, 0.9);
     padding: 20px;
     z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     box-shadow: 0 2px 10px rgba(0, 255, 185, 0.2);
 }
 .hamburger {
-    display: none;
+    display: none; /* Hidden on desktop */
     font-size: 24px;
     color: #FFFFFF;
     cursor: pointer;
-    padding: 10px;
+    padding: 5px; /* Reduced padding to fit better */
 }
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centered on desktop */
     gap: 30px;
     flex-wrap: wrap;
     white-space: nowrap;
@@ -182,18 +179,18 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
 /* Media Queries */
 @media (max-width: 768px) {
     .hamburger {
-        display: block;
+        display: block; /* Show hamburger on mobile */
     }
     nav ul {
         display: none; /* Hidden by default on mobile */
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Below nav */
+        top: 50px; /* Adjusted to fit below nav */
         left: 0;
         width: 100%;
         background: rgba(0, 0, 0, 0.9);
         padding: 10px 0;
-        z-index: 99; /* Ensure it's above content */
+        z-index: 99;
     }
     nav ul.active {
         display: flex; /* Show when active */
@@ -203,10 +200,11 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
         text-align: center;
     }
     nav {
-        padding: 10px;
-    }
-    nav ul li a {
-        font-size: 14px;
+        padding: 10px 15px; /* Adjusted padding to keep hamburger in view */
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        box-sizing: border-box; /* Ensures padding doesn't push content out */
     }
 }
 @media (max-width: 480px) {
@@ -221,4 +219,5 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
 }
 @media (max-width: 320px) {
     nav ul li a { font-size: 10px; }
-                                                                           }
+    .hamburger { font-size: 20px; padding: 5px; } /* Smaller hamburger on tiny screens */
+}
