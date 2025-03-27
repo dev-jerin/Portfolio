@@ -3,7 +3,11 @@
 @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes float { 0% { transform: translateY(0) translateX(0); opacity: 0.8; } 50% { transform: translateY(-50vh) translateX(20px); opacity: 0.5; } 100% { transform: translateY(-100vh) translateX(-10px); opacity: 0; } }
+@keyframes float { 
+    0% { opacity: 0.8; }
+    50% { transform: translateY(-50vh) translateX(20px); opacity: 0.5; }
+    100% { transform: translateY(-100vh) translateX(-10px); opacity: 0; }
+}
 @keyframes rotateGlow { 0% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0.7); } 50% { transform: rotate(10deg) scale(1.05); box-shadow: 0 0 15px 5px rgba(0, 255, 185, 0.5); } 100% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0); } }
 @keyframes glow { 0% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); } 50% { text-shadow: 0 0 15px rgba(0, 255, 185, 0.8), 0 0 25px rgba(0, 255, 185, 0.5); } 100% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); } }
 @keyframes pulse { 0% { box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); } 50% { box-shadow: 0 0 20px rgba(0, 255, 185, 1); } 100% { box-shadow: 0 0 10px rgba(0, 255, 185, 0.7); } }
@@ -13,9 +17,10 @@
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body { overflow-x: hidden; margin: 0; padding: 0; background: #000000; color: #FFFFFF; font-family: 'Poppins', sans-serif; }
 .bubble-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
-.bubble { position: absolute; border-radius: 50%; will-change: transform; }
-.section { opacity: 0; transition: opacity 0.3s ease-in-out; }
+.bubble { position: absolute; border-radius: 50%; will-change: transform; transition: transform 0.3s ease-out; transform: translateY(0) translateX(0); }
+.section { opacity: 0; transition: opacity 0.5s ease; }
 .section.visible { opacity: 1; }
+.section.hidden { opacity: 0; }
 .section.visible > * { animation: slideInUp 1s ease-in-out forwards; }
 
 /* Navigation */
@@ -29,18 +34,18 @@ nav {
     box-shadow: 0 2px 10px rgba(0, 255, 185, 0.2);
 }
 .hamburger {
-    display: none; /* Hidden on desktop */
+    display: none;
     font-size: 24px;
     color: #FFFFFF;
     cursor: pointer;
-    padding: 5px; /* Reduced padding to fit better */
+    padding: 5px;
 }
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Centered on desktop */
+    justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
     white-space: nowrap;
@@ -109,14 +114,14 @@ nav ul li a:focus,
 .timeline-content:hover { transform: translateX(10px); }
 .timeline-content h3 { font-size: 24px; margin: 0; color: #FFFFFF; }
 .timeline-date { font-size: 18px; font-weight: 300; margin: 5px 0; color: #00FFB9; }
-.timeline-content p { font-size: 16px; color: #AAAAAA; margin: 0; }
+.timeline-content p { font-size: 16px; color: #CCCCCC; margin: 0; }
 
 /* Contact Section */
 #contact { min-height: 100vh; padding: 100px 20px; text-align: center; }
 #contact h2 { font-size: 36px; font-weight: 500; margin-bottom: 40px; animation: glow 2s infinite ease-in-out; }
 .contact-container { max-width: 600px; margin: 0 auto; background: #1A1A1A; padding: 40px; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 255, 185, 0.3); opacity: 0; transition: opacity 0.3s ease-in-out; }
 .section.visible .contact-container { opacity: 1; }
-.contact-container p { font-size: 18px; font-weight: 300; margin-bottom: 30px; color: #AAAAAA; }
+.contact-container p { font-size: 18px; font-weight: 300; margin-bottom: 30px; color: #CCCCCC; }
 #contact-form { display: flex; flex-direction: column; gap: 20px; }
 #contact-form input, #contact-form textarea {
     padding: 15px;
@@ -151,8 +156,8 @@ nav ul li a:focus,
 #contact-form input.invalid, #contact-form textarea.invalid { box-shadow: 0 0 5px rgba(255, 0, 122, 0.7); }
 
 /* Footer */
-footer { padding: 20px; text-align: center; background: #1A1A1A; color: #AAAAAA; font-size: 14px; }
-footer a { color: #AAAAAA; text-decoration: none; transition: color 0.3s ease-in-out; }
+footer { padding: 20px; text-align: center; background: #1A1A1A; color: #CCCCCC; font-size: 14px; }
+footer a { color: #CCCCCC; text-decoration: none; transition: color 0.3s ease-in-out; }
 footer a:hover { color: #00FFB9; }
 footer svg { margin: 0 10px; transition: fill 0.3s ease-in-out; }
 footer a[href*="linkedin"] svg:hover { fill: #0A66C2; }
@@ -179,13 +184,13 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
 /* Media Queries */
 @media (max-width: 768px) {
     .hamburger {
-        display: block; /* Show hamburger on mobile */
+        display: block;
     }
     nav ul {
-        display: none; /* Hidden by default on mobile */
+        display: none;
         flex-direction: column;
         position: absolute;
-        top: 50px; /* Adjusted to fit below nav */
+        top: 50px;
         left: 0;
         width: 100%;
         background: rgba(0, 0, 0, 0.9);
@@ -193,18 +198,18 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
         z-index: 99;
     }
     nav ul.active {
-        display: flex; /* Show when active */
+        display: flex;
     }
     nav ul li {
         margin: 10px 0;
         text-align: center;
     }
     nav {
-        padding: 10px 15px; /* Adjusted padding to keep hamburger in view */
+        padding: 10px 15px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        box-sizing: border-box; /* Ensures padding doesn't push content out */
+        box-sizing: border-box;
     }
 }
 @media (max-width: 480px) {
@@ -219,5 +224,5 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
 }
 @media (max-width: 320px) {
     nav ul li a { font-size: 10px; }
-    .hamburger { font-size: 20px; padding: 5px; } /* Smaller hamburger on tiny screens */
-}
+    .hamburger { font-size: 20px; padding: 5px; }
+    }
