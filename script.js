@@ -17,11 +17,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (hamburger && navUl) {
         hamburger.addEventListener("click", () => {
             navUl.classList.toggle("active");
-            console.log("Hamburger clicked, navUl classList:", navUl.classList); // Debug
+            console.log("Hamburger clicked, navUl classList:", navUl.classList);
         });
     } else {
         console.error("Hamburger or navUl not found");
     }
+
+    // Interactive Background
+    document.addEventListener("mousemove", (e) => {
+        const bubbles = document.querySelectorAll(".bubble");
+        bubbles.forEach(bubble => {
+            const rect = bubble.getBoundingClientRect();
+            const bubbleX = rect.left + rect.width / 2;
+            const bubbleY = rect.top + rect.height / 2;
+            const dx = (e.clientX - bubbleX) / window.innerWidth * 50;
+            const dy = (e.clientY - bubbleY) / window.innerHeight * 50;
+            bubble.style.transform = `translate(${dx}px, ${dy}px)`;
+        });
+    });
 
     // Skill Box Interaction
     const skillBoxes = document.querySelectorAll(".skill-box");
@@ -113,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageInput = contactForm.querySelector('textarea[name="message"]');
     const counter = document.createElement("span");
     counter.style.fontSize = "12px";
-    counter.style.color = "#AAAAAA";
+    counter.style.color = "#CCCCCC";
     counter.style.display = "block";
     counter.style.marginTop = "5px";
     messageInput.insertAdjacentElement("afterend", counter);
@@ -262,9 +275,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Navigation Enhancement
     const navLinks = document.querySelectorAll("nav ul li a");
+    navLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            sections.forEach(section => {
+                section.classList.remove("visible");
+                section.classList.add("hidden");
+            });
+
+            setTimeout(() => {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: "smooth"
+                });
+                targetSection.classList.remove("hidden");
+                targetSection.classList.add("visible");
+                if (window.innerWidth <= 768) {
+                    navUl.classList.remove("active");
+                }
+            }, 500);
+        });
+    });
+
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !entry.target.classList.contains("hidden")) {
                 navLinks.forEach(link => {
                     link.classList.toggle("active", link.getAttribute("href").substring(1) === entry.target.id);
                 });
