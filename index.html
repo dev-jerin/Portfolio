@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://jerin-s05.github.io/Portfolio/">
     <meta property="og:type" content="website">
     <title>Jerin Sigi - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" as="style" onload="this.rel='stylesheet'">
     <link rel="apple-touch-icon" sizes="180x180" href="/Portfolio/favicon/apple-touch-icon.png" loading="lazy">
     <link rel="icon" type="image/png" sizes="32x32" href="/Portfolio/favicon/favicon-32x32.png" loading="lazy">
     <link rel="icon" type="image/png" sizes="16x16" href="/Portfolio/favicon/favicon-16x16.png" loading="lazy">
@@ -40,6 +40,22 @@
             <li><a href="#education" aria-label="Go to Education section">Education</a></li>
             <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
         </ul>
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <svg id="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="#FFD700" class="theme-icon" style="display: block;">
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="12" y1="1" x2="12" y2="3" stroke="#FFD700" stroke-width="2"/>
+                <line x1="12" y1="21" x2="12" y2="23" stroke="#FFD700" stroke-width="2"/>
+                <line x1="1" y1="12" x2="3" y2="12" stroke="#FFD700" stroke-width="2"/>
+                <line x1="21" y1="12" x2="23" y2="12" stroke="#FFD700" stroke-width="2"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="#FFD700" stroke-width="2"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="#FFD700" stroke-width="2"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="#FFD700" stroke-width="2"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="#FFD700" stroke-width="2"/>
+            </svg>
+            <svg id="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="#000000" class="theme-icon" style="display: none;">
+                <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
+            </svg>
+        </button>
     </nav>
 
     <!-- Home Section -->
@@ -143,12 +159,12 @@
         <p>© Jerin Sigi | contact: <a href="mailto:jerinsigi@gmail.com">jerinsigi@gmail.com</a></p>
         <div>
             <a href="https://linkedin.com/in/jerin-sigi/" target="_blank" aria-label="Visit Jerin Sigi's LinkedIn">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF">
+                <svg class="social-icon" width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-1.337-.026-3.058-1.867-3.058-1.867 0-2.153 1.459-2.153 2.965v5.697h-3v-11h2.879v1.507h.041c.401-.757 1.379-1.557 2.837-1.557 3.033 0 3.593 1.995 3.593 4.594v6.456z"/>
                 </svg>
             </a>
             <a href="https://github.com/jerin-s05/" target="_blank" aria-label="Visit Jerin Sigi's GitHub">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF">
+                <svg class="social-icon" width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF">
                     <path d="M12 2a10 10 0 00-3.162 19.487c.5.092.682-.217.682-.482v-1.69c-2.785.61-3.37-1.34-3.37-1.34-.455-1.157-1.112-1.465-1.112-1.465-.908-.62.068-.608.068-.608 1.003.084 1.53 1.032 1.53 1.032.892 1.528 2.34 1.087 2.91.832.092-.647.35-1.087.636-1.338-2.22-.252-4.555-1.11-4.555-4.943 0-1.092.39-1.985 1.03-2.683-.103-.252-.447-1.268.098-2.642 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.337 1.91-1.296 2.747-1.025 2.747-1.025.546 1.374.202 2.39.1 2.642.64.698 1.028 1.591 1.028 2.683 0 3.841-2.337 4.687-4.565 4.935.36.31.678.92.678 1.852v2.743c0 .267.18.577.688.478A10 10 0 0012 2z"/>
                 </svg>
             </a>
@@ -160,7 +176,7 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 4l-8 8h6v8h4v-8h6l-8-8z"/></svg>
     </button>
 
-    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js" defer></script>
     <script src="script.js" defer></script>
 </body>
-        </html>
+            </html>
