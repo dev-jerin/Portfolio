@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const CONSTANTS = {
         TYPING_SPEED: 150,
         DELETING_SPEED: 100,
-        PAUSE_DURATION: 2000, // Increased for a longer pause
+        PAUSE_DURATION: 2000,
         ANIMATION_DURATION: 600,
     };
 
@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     throw new Error("Submission failed");
                 }
             } catch (error) {
-                confirmation.textContent = "Oops! Something went wrong. Please try again later.";
+               confirmation.textContent = "Oops! Something went wrong. Please try again later.";
                 confirmation.style.color = "#FF007A";
                 confirmation.style.display = "block";
                 setTimeout(() => { confirmation.style.display = "none"; }, 3000);
