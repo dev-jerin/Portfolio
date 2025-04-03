@@ -72,11 +72,11 @@ nav {
     top: 0;
     width: 100%;
     background: var(--nav-bg);
-    padding: 20px;
+    padding: 20px 40px; /* Increased right padding */
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0, 255, 185, 0.2);
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the content */
     align-items: center;
 }
 .hamburger {
@@ -95,6 +95,8 @@ nav ul {
     gap: 30px;
     flex-wrap: wrap;
     white-space: nowrap;
+    flex-grow: 1; /* Allows ul to grow and center */
+    max-width: 800px; /* Limits width for better control */
 }
 nav ul li a {
     color: var(--text-color);
@@ -113,6 +115,10 @@ nav ul li a:focus,
     outline-offset: 2px;
 }
 #theme-toggle {
+    position: absolute;
+    right: 20px; /* Positioned on the right */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically centered */
     background: none;
     border: none;
     cursor: pointer;
@@ -290,8 +296,12 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
     }
     nav ul.active { display: flex; }
     nav ul li { margin: 10px 0; text-align: center; }
-    nav { padding: 10px 15px; box-sizing: border-box; }
-    #theme-toggle { margin-right: 10px; }
+    nav { padding: 10px 15px; box-sizing: border-box; justify-content: flex-start; } /* Adjusted for mobile */
+    #theme-toggle { position: static; transform: none; margin-left: auto; } /* Reset for mobile */
+}
+@media (min-width: 769px) {
+    .hamburger { display: none; }
+    nav ul { display: flex; }
 }
 @media (max-width: 480px) {
     nav ul li a { font-size: 12px; }
@@ -306,4 +316,4 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
 @media (max-width: 320px) {
     nav ul li a { font-size: 0.75rem; }
     .hamburger { font-size: 20px; padding: 5px; }
-    }
+      }
