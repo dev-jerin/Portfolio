@@ -72,12 +72,13 @@ nav {
     top: 0;
     width: 100%;
     background: var(--nav-bg);
-    padding: 20px 40px;
+    padding: 20px 20px; /* Reduced right padding from 40px to 20px */
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0, 255, 185, 0.2);
     display: flex;
-    justify-content: space-between; /* Aligns theme toggle left, nav right */
+    justify-content: space-between;
     align-items: center;
+    box-sizing: border-box; /* Ensures padding doesn't increase width beyond 100% */
 }
 .hamburger {
     display: none;
@@ -91,9 +92,10 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: flex-end; /* Aligns nav links to the right */
-    gap: 30px;
+    justify-content: flex-end;
+    gap: 20px; /* Reduced from 30px to 20px to fit better */
     white-space: nowrap;
+    max-width: 50%; /* Limits the navigation width to prevent overflow */
 }
 nav ul li a {
     color: var(--text-color);
@@ -118,7 +120,7 @@ nav ul li a:focus,
     padding: 5px;
     display: flex;
     align-items: center;
-    order: -1; /* Moves theme toggle to the left */
+    order: -1; /* Theme toggle on the left */
 }
 .theme-icon {
     transition: fill 0.3s ease;
@@ -166,7 +168,7 @@ body.light-mode #moon-icon {
 .skills-container { display: flex; flex-direction: column; gap: 30px; max-width: 600px; margin: 0 auto; }
 .skill-box { background: var(--card-bg); padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out; outline: none; tabindex: 0; }
 .skill-box:hover { transform: scale(1.05); }
-.skill-box.clicked { animation: rotateGlow  LARGE_INTEGER0.6s ease-in-out; }
+.skill-box.clicked { animation: rotateGlow 0.6s ease-in-out; }
 .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .skill-box h3 { font-size: 24px; margin: 0; color: var(--text-color); }
 .skill-percentage { font-size: 18px; color: var(--accent); }
@@ -291,7 +293,7 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
     nav ul.active { display: flex; }
     nav ul li { margin: 10px 0; text-align: center; }
     nav { padding: 10px 15px; box-sizing: border-box; justify-content: space-between; }
-    #theme-toggle { order: 1; } /* Keeps theme toggle on the right in mobile */
+    #theme-toggle { order: 1; } /* Theme toggle on the right in mobile */
 }
 @media (min-width: 769px) {
     .hamburger { display: none; }
