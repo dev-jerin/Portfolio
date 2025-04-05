@@ -114,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function initSkillsProgress() {
         const progressBars = document.querySelectorAll(".progress-fill");
         const percentageElements = document.querySelectorAll(".skill-percentage");
-        let animated = false;
         const animatePercentage = (element, target) => {
             let current = 0;
             const increment = target / 100;
@@ -128,17 +127,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 20);
         };
         const skillsObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !animated) {
-                animated = true;
-                progressBars.forEach((bar, index) => {
-                    setTimeout(() => {
-                        bar.style.width = bar.getAttribute("data-percentage") + "%";
-                    }, index * 200); // Stagger by 200ms
-                });
-                percentageElements.forEach((element, index) => {
-                    setTimeout(() => animatePercentage(element, parseInt(element.getAttribute("data-target"))), index * 200);
-                });
-            }
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    progressBars.forEach(bar => bar.style.width = bar.getAttribute("data-percentage") + "%");
+                    percentageElements.forEach(element => animatePercentage(element, parseInt(element.getAttribute("data-target"))));
+                    skillsObserver.unobserve(entry.target);
+                }
+            });
         }, { threshold: 0.5 });
         skillsObserver.observe(document.querySelector("#skills"));
     }
