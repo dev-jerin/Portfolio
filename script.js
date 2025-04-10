@@ -28,8 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const navUl = document.querySelector("nav ul");
         if (hamburger && navUl) {
             hamburger.addEventListener("click", () => {
-                const isExpanded = hamburger.getAttribute("aria-expanded") === "true";
-                hamburger.setAttribute("aria-expanded", !isExpanded);
                 navUl.classList.toggle("active");
             });
         }
@@ -57,8 +55,17 @@ document.addEventListener("DOMContentLoaded", () => {
     function initSkillBoxes() {
         const skillBoxes = document.querySelectorAll(".skill-box");
         skillBoxes.forEach(box => {
-            box.addEventListener("focus", () => box.classList.add("focused"));
-            box.addEventListener("blur", () => box.classList.remove("focused"));
+            const handleInteraction = () => {
+                box.classList.add("clicked");
+                setTimeout(() => box.classList.remove("clicked"), CONSTANTS.ANIMATION_DURATION);
+            };
+            box.addEventListener("click", handleInteraction);
+            box.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleInteraction();
+                }
+            });
         });
     }
 
@@ -129,53 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }, { threshold: 0.5 });
         skillsObserver.observe(document.querySelector("#skills"));
-    }
-
-    // Certificates Modal
-    function initCertificates() {
-        const certificateCards = document.querySelectorAll(".certificate-card");
-        const modal = document.getElementById("certificate-modal");
-        const modalImage = document.getElementById("modal-image");
-        const modalTitle = document.getElementById("modal-title");
-        const modalDescription = document.getElementById("modal-description");
-        const closeModalBtn = document.querySelector(".close-modal");
-
-        function openModal(card) {
-            const imgSrc = card.querySelector("img").src;
-            const title = card.querySelector("h3").textContent;
-            const description = card.querySelector("p").textContent;
-
-            modalImage.src = imgSrc;
-            modalTitle.textContent = title;
-            modalDescription.textContent = description;
-            modal.classList.add("active");
-            modal.setAttribute("aria-hidden", "false");
-            closeModalBtn.focus();
-        }
-
-        function closeModal() {
-            modal.classList.remove("active");
-            modal.setAttribute("aria-hidden", "true");
-        }
-
-        certificateCards.forEach(card => {
-            const handleInteraction = () => openModal(card);
-            card.addEventListener("click", handleInteraction);
-            card.addEventListener("keydown", (e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    handleInteraction();
-                }
-            });
-        });
-
-        closeModalBtn.addEventListener("click", closeModal);
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) closeModal();
-        });
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && modal.classList.contains("active")) closeModal();
-        });
     }
 
     // Contact Form Handling
@@ -390,7 +350,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initTypewriter();
     initAge();
     initSkillsProgress();
-    initCertificates();
     initContactForm();
     initNavigation();
     initScrollToTop();
