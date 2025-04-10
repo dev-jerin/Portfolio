@@ -8,6 +8,7 @@
     50% { transform: translateY(-300px) translateX(20px); opacity: 0.5; }
     100% { transform: translateY(-600px) translateX(-10px); opacity: 0; }
 }
+@keyframes rotateGlow { 0% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0.7); } 50% { transform: rotate(10deg) scale(1.05); box-shadow: 0 0 15px 5px rgba(0, 255, 185, 0.5); } 100% { transform: rotate(0deg) scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 185, 0); } }
 @keyframes glow { 0% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); } 50% { text-shadow: 0 0 15px rgba(0, 255, 185, 0.8), 0 0 25px rgba(0, 255, 185, 0.5); } 100% { text-shadow: 0 0 5px rgba(0, 255, 185, 0.5); } }
 @keyframes pulse { 
     0% { box-shadow: 0 0 5px rgba(0, 255, 185, 0.5); } 
@@ -71,13 +72,13 @@ nav {
     top: 0;
     width: 100%;
     background: var(--nav-bg);
-    padding: 20px 20px;
+    padding: 20px 20px; /* Reduced right padding from 40px to 20px */
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0, 255, 185, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Ensures padding doesn't increase width beyond 100% */
 }
 .hamburger {
     display: none;
@@ -92,9 +93,9 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: flex-end;
-    gap: 20px;
+    gap: 20px; /* Reduced from 30px to 20px to fit better */
     white-space: nowrap;
-    max-width: 50%;
+    max-width: 50%; /* Limits the navigation width to prevent overflow */
 }
 nav ul li a {
     color: var(--text-color);
@@ -108,8 +109,7 @@ nav ul li a.active { color: var(--accent); border-bottom: 2px solid var(--accent
 nav ul li a:focus,
 #scroll-top:focus,
 #contact-form button:focus,
-.skill-box:focus,
-.certificate-card:focus {
+.skill-box:focus {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
@@ -120,7 +120,7 @@ nav ul li a:focus,
     padding: 5px;
     display: flex;
     align-items: center;
-    order: -1;
+    order: -1; /* Theme toggle on the left */
 }
 .theme-icon {
     transition: fill 0.3s ease;
@@ -166,16 +166,9 @@ body.light-mode #moon-icon {
 #skills { min-height: 100vh; padding: 100px 20px; text-align: center; }
 #skills h2 { font-size: 36px; font-weight: 500; margin-bottom: 40px; }
 .skills-container { display: flex; flex-direction: column; gap: 30px; max-width: 600px; margin: 0 auto; }
-.skill-box { 
-    background: var(--card-bg); 
-    padding: 20px; 
-    border-radius: 8px; 
-    transition: transform 0.3s ease-in-out; 
-    outline: none; 
-    tabindex: 0; 
-    position: relative;
-}
+.skill-box { background: var(--card-bg); padding: 20px; border-radius: 8px; transition: transform 0.3s ease-in-out; outline: none; tabindex: 0; }
 .skill-box:hover { transform: scale(1.05); }
+.skill-box.clicked { animation: rotateGlow 0.6s ease-in-out; }
 .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .skill-box h3 { font-size: 24px; margin: 0; color: var(--text-color); }
 .skill-percentage { font-size: 18px; color: var(--accent); }
@@ -194,57 +187,6 @@ body.light-mode #moon-icon {
 }
 .progress-fill:hover { animation: pulse 1s infinite ease-in-out; }
 
-/* Skills Section - Tooltips */
-.skill-box::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--card-bg);
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-color);
-    box-shadow: 0 0 10px rgba(0, 255, 185, 0.3);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 10;
-    white-space: nowrap;
-}
-.skill-box:hover::after,
-.skill-box:focus::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-5px);
-}
-.skill-box::before {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid var(--card-bg);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 10;
-}
-.skill-box:hover::before,
-.skill-box:focus::before {
-    opacity: 1;
-}
-body.light-mode .skill-box::after {
-    box-shadow: 0 0 10px rgba(255, 0, 122, 0.3);
-}
-body.light-mode .skill-box::before {
-    border-top-color: var(--card-bg);
-}
-
 /* Education Section */
 #education { min-height: 100vh; padding: 100px 20px; text-align: center; }
 #education h2 { font-size: 36px; font-weight: 500; margin-bottom: 40px; }
@@ -258,141 +200,6 @@ body.light-mode .skill-box::before {
 .timeline-content h3 { font-size: 24px; margin: 0; color: var(--text-color); }
 .timeline-date { font-size: 18px; font-weight: 300; margin: 5px 0; color: var(--accent); }
 .timeline-content p { font-size: 16px; color: var(--secondary-text); margin: 0; }
-
-/* Certificates Section */
-#certificates {
-    padding: 100px 20px;
-    text-align: center;
-}
-#certificates h2 {
-    font-size: 36px;
-    font-weight: 500;
-    margin-bottom: 40px;
-    animation: glow 2s infinite ease-in-out;
-}
-.certificates-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) var(--card-bg);
-}
-.certificates-grid {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-}
-.certificate-card {
-    background: var(--card-bg);
-    border-radius: 10px;
-    padding: 15px;
-    width: 200px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    cursor: pointer;
-    flex-shrink: 0;
-    outline: none;
-    tabindex: 0;
-    overflow: hidden; /* Prevents text overflow */
-}
-.certificate-card:hover,
-.certificate-card:focus {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 255, 185, 0.5);
-}
-.certificate-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-.certificate-card h3 {
-    font-size: 18px;
-    margin: 10px 0;
-    color: var(--text-color);
-}
-.certificate-card p {
-    font-size: 14px;
-    color: var(--secondary-text);
-    margin: 0;
-    word-wrap: break-word; /* Ensures text wraps within the card */
-    max-height: 40px; /* Limits height to prevent overlap */
-    overflow: hidden; /* Hides excess text */
-    text-overflow: ellipsis; /* Adds ellipsis for truncated text */
-}
-.certificate-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 1000;
-}
-.certificate-modal.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-.modal-content {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 80%;
-    max-height: 80vh;
-    overflow-y: auto;
-    position: relative;
-    transform: scale(0.8);
-    animation: bounceIn 0.5s ease forwards;
-}
-.certificate-modal.active .modal-content {
-    transform: scale(1);
-}
-.modal-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-.modal-content h3 {
-    font-size: 24px;
-    margin: 0 0 10px;
-    color: var(--text-color);
-}
-.modal-content p {
-    font-size: 16px;
-    color: var(--secondary-text);
-}
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    color: var(--text-color);
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-.close-modal:hover,
-.close-modal:focus {
-    color: var(--accent);
-}
-.certificates-container::-webkit-scrollbar {
-    height: 8px;
-}
-.certificates-container::-webkit-scrollbar-thumb {
-    background: var(--accent);
-    border-radius: 4px;
-}
-.certificates-container::-webkit-scrollbar-track {
-    background: var(--card-bg);
-}
 
 /* Contact Section */
 #contact { min-height: 100vh; padding: 100px 20px; text-align: center; }
@@ -486,29 +293,7 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
     nav ul.active { display: flex; }
     nav ul li { margin: 10px 0; text-align: center; }
     nav { padding: 10px 15px; box-sizing: border-box; justify-content: space-between; }
-    #theme-toggle { order: 1; }
-    .skill-box::after {
-        font-size: 12px;
-        padding: 6px 10px;
-        white-space: normal;
-        max-width: 150px;
-    }
-    .skill-box::before {
-        border-top-width: 5px;
-    }
-    .certificate-card {
-        width: 150px;
-    }
-    .certificate-card h3 {
-        font-size: 16px;
-    }
-    .certificate-card p {
-        font-size: 12px;
-        max-height: 36px; /* Adjusted for smaller screens */
-    }
-    .modal-content {
-        max-width: 90%;
-    }
+    #theme-toggle { order: 1; } /* Theme toggle on the right in mobile */
 }
 @media (min-width: 769px) {
     .hamburger { display: none; }
