@@ -312,4 +312,4 @@ footer a[href*="github"] svg:hover { fill: #4078C0; }
 @media (max-width: 320px) {
     nav ul li a { font-size: 0.75rem; }
     .hamburger { font-size: 20px; padding: 5px; }
-        }
+    }
