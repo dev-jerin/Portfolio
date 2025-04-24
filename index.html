@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://jerin-s05.github.io/Portfolio/">
     <meta property="og:type" content="website">
     <title>Jerin Sigi - Portfolio</title>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
     <link rel="apple-touch-icon" sizes="180x180" href="/Portfolio/favicon/apple-touch-icon.png" loading="lazy">
     <link rel="icon" type="image/png" sizes="32x32" href="/Portfolio/favicon/favicon-32x32.png" loading="lazy">
     <link rel="icon" type="image/png" sizes="16x16" href="/Portfolio/favicon/favicon-16x16.png" loading="lazy">
@@ -23,15 +23,12 @@
 <body>
     <!-- Background Bubble Animation -->
     <div class="bubble-container">
-        <div class="bubble" style="width: 20px; height: 20px; background: rgba(0, 255, 185, 0.3); bottom: -20px; left: 10%; animation: float 6s infinite ease-in-out;"></div>
-        <div class="bubble" style="width: 15px; height: 15px; background: rgba(255, 0, 122, 0.3); bottom: -15px; left: 30%; animation: float 8s infinite ease-in-out; animation-delay: 1s;"></div>
-        <div class="bubble" style="width: 25px; height: 25px; background: rgba(0, 255, 185, 0.2); bottom: -25px; left: 50%; animation: float 5s infinite ease-in-out; animation-delay: 2s;"></div>
-        <div class="bubble" style="width: 10px; height: 10px; background: rgba(255, 0, 122, 0.4); bottom: -10px; left: 70%; animation: float 7s infinite ease-in-out; animation-delay: 3s;"></div>
-        <div class="bubble" style="width: 30px; height: 30px; background: rgba(0, 255, 185, 0.3); bottom: -30px; left: 90%; animation: float 9s infinite ease-in-out; animation-delay: 4s;"></div>
+        <!-- Bubbles will be generated dynamically via JavaScript -->
     </div>
 
     <!-- Navigation -->
     <nav>
+        <div class="nav-name">Jerin Sigi</div>
         <div class="hamburger">☰</div>
         <ul role="navigation">
             <li><a href="#home" aria-label="Go to Home section">Home</a></li>
@@ -64,6 +61,7 @@
         <div class="typewriter-container">
             <p id="typewriter"></p>
         </div>
+        <a href="https://linkedin.com/in/jerin-sigi/" target="_blank" class="cta-button">Get in Touch</a>
     </section>
 
     <!-- About Section -->
@@ -142,13 +140,16 @@
             <form id="contact-form" action="https://formspree.io/f/movevjqd" method="POST">
                 <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" required>
-                <input type="text" name="subject" placeholder="Subject" aria-label="Subject" required>
+                <input type="text" name="subject" placeholder="Subject" aria-label="Subject">
                 <textarea name="message" placeholder="Your Message" rows="5" aria-label="Your Message" required></textarea>
-                <button type="submit">Send Message
-                    <span class="button-bubble" style="left: 20%;"></span>
-                    <span class="button-bubble" style="left: 50%; animation-delay: 0.3s;"></span>
-                    <span class="button-bubble" style="left: 80%; animation-delay: 0.6s;"></span>
-                </button>
+                <div class="form-footer">
+                    <span id="message-counter">0/1000 characters</span>
+                    <button type="submit">Send Message
+                        <span class="button-bubble" style="left: 20%;"></span>
+                        <span class="button-bubble" style="left: 50%; animation-delay: 0.3s;"></span>
+                        <span class="button-bubble" style="left: 80%; animation-delay: 0.6s;"></span>
+                    </button>
+                </div>
             </form>
             <div id="confirmation"></div>
         </div>
@@ -156,8 +157,12 @@
 
     <!-- Footer -->
     <footer>
-        <p>© Jerin Sigi | contact: <a href="mailto:jerinsigi@gmail.com">jerinsigi@gmail.com</a></p>
-        <div>
+        <div class="footer-content">
+            <a href="mailto:jerinsigi@gmail.com" aria-label="Email Jerin Sigi">
+                <svg class="social-icon email-icon" width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF">
+                    <path d="M12 12.713l11.985-7.993v-.72a1 1 0 00-1-1h-22a1 1 0 00-1 1v.72l11.985 7.993zm0 2.574l-12-8v10.426a1 1 0 001 1h22a1 1 0 001-1v-10.426l-12 8z"/>
+                </svg>
+            </a>
             <a href="https://linkedin.com/in/jerin-sigi/" target="_blank" aria-label="Visit Jerin Sigi's LinkedIn">
                 <svg class="social-icon" width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-1.337-.026-3.058-1.867-3.058-1.867 0-2.153 1.459-2.153 2.965v5.697h-3v-11h2.879v1.507h.041c.401-.757 1.379-1.557 2.837-1.557 3.033 0 3.593 1.995 3.593 4.594v6.456z"/>
@@ -169,6 +174,7 @@
                 </svg>
             </a>
         </div>
+        <p>© Jerin Sigi | contact: <a href="mailto:jerinsigi@gmail.com">jerinsigi@gmail.com</a></p>
     </footer>
 
     <!-- Scroll to Top Button -->
@@ -176,7 +182,6 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 4l-8 8h6v8h4v-8h6l-8-8z"/></svg>
     </button>
 
-    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js" defer></script>
     <script src="script.js" defer></script>
 </body>
-                    </html>
+    </html>
