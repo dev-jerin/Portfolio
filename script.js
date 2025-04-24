@@ -35,36 +35,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Interactive Background
     function initInteractiveBackground() {
-        let lastMove = 0;
-        document.addEventListener("mousemove", (e) => {
-            if (Date.now() - lastMove < 16) return;
-            lastMove = Date.now();
-            const bubbles = document.querySelectorAll(".bubble");
-            bubbles.forEach(bubble => {
-                const rect = bubble.getBoundingClientRect();
-                const bubbleX = rect.left + rect.width / 2;
-                const bubbleY = rect.top + rect.height / 2;
-                const dx = (e.clientX - bubbleX) / window.innerWidth * 50;
-                const dy = (e.clientY - bubbleY) / window.innerHeight * 50;
-                bubble.style.transform = `translate(${dx}px, ${dy}px)`;
-            });
-        });
+        const bubbleContainer = document.querySelector(".bubble-container");
+        for (let i = 0; i < 30; i++) { // Increased to 30 bubbles
+            const bubble = document.createElement("div");
+            bubble.classList.add("bubble");
+            const size = Math.random() * 40 + 10;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.background = `rgba(0, 255, 185, ${Math.random() * 0.5 + 0.2})`;
+            bubble.style.bottom = `${Math.random() * 100}%`;
+            bubble.style.left = `${Math.random() * 100}%`;
+            bubble.style.animation = `float ${Math.random() * 8 + 4}s infinite ease-in-out`;
+            bubbleContainer.appendChild(bubble);
+        }
     }
 
     // Skill Box Interaction
     function initSkillBoxes() {
         const skillBoxes = document.querySelectorAll(".skill-box");
-        skillBoxes.forEach(box => {
-            const handleInteraction = () => {
-                box.classList.add("clicked");
-                setTimeout(() => box.classList.remove("clicked"), CONSTANTS.ANIMATION_DURATION);
-            };
-            box.addEventListener("click", handleInteraction);
-            box.addEventListener("keydown", (e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    handleInteraction();
-                }
+        document.addEventListener("mousemove", (e) => {
+            skillBoxes.forEach(box => {
+                const rect = box.getBoundingClientRect();
+                const boxX = rect.left + rect.width / 2;
+                const boxY = rect.top + rect.height / 2;
+                const dx = (e.clientX - boxX) / window.innerWidth * 20;
+                const dy = (e.clientY - boxY) / window.innerHeight * 20;
+                box.style.transform = `translate(${dx}px, ${dy}px)`;
+            });
+        });
+    }
+
+    // Education Box Interaction
+    function initEducationBoxes() {
+        const timelineContents = document.querySelectorAll(".timeline-content");
+        document.addEventListener("mousemove", (e) => {
+            timelineContents.forEach(content => {
+                const rect = content.getBoundingClientRect();
+                const contentX = rect.left + rect.width / 2;
+                const contentY = rect.top + rect.height / 2;
+                const dx = (e.clientX - contentX) / window.innerWidth * 20;
+                const dy = (e.clientY - contentY) / window.innerHeight * 20;
+                content.style.transform = `translate(${dx}px, ${dy}px)`;
             });
         });
     }
@@ -124,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     clearInterval(interval);
                 }
                 element.textContent = Math.round(current) + "%";
-            }, 20);
+            }, 10); // Adjusted for faster animation
         };
         const skillsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -142,73 +153,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function initContactForm() {
         const contactForm = document.getElementById("contact-form");
         const confirmation = document.getElementById("confirmation");
-
         const messageInput = contactForm.querySelector('textarea[name="message"]');
-        const counter = document.createElement("span");
-        counter.style.fontSize = "12px";
-        counter.style.color = "#CCCCCC";
-        counter.style.display = "block";
-        counter.style.marginTop = "5px";
-        messageInput.insertAdjacentElement("afterend", counter);
+        const counter = document.getElementById("message-counter");
+
         messageInput.addEventListener("input", () => {
             counter.textContent = `${messageInput.value.length}/1000 characters`;
-        });
-
-        function getErrorSpan(input) {
-            let errorSpan = input.nextElementSibling;
-            if (input.name === "message" && errorSpan === counter) {
-                errorSpan = counter.nextElementSibling;
-            }
-            if (!errorSpan || !errorSpan.classList.contains("error")) {
-                errorSpan = document.createElement("span");
-                errorSpan.classList.add("error");
-                errorSpan.style.color = "#FF007A";
-                errorSpan.style.fontSize = "14px";
-                input.insertAdjacentElement("afterend", errorSpan);
-            }
-            return errorSpan;
-        }
-
-        const inputs = contactForm.querySelectorAll("input, textarea");
-        inputs.forEach(input => {
-            input.addEventListener("input", () => {
-                const value = input.value.trim();
-                const errorSpan = getErrorSpan(input);
-
-                switch (input.name) {
-                    case "name":
-                        if (!value) errorSpan.textContent = "Name is required.";
-                        else if (!/^[a-zA-Z\s-]{2,50}$/.test(value)) {
-                            if (value.length < 2) errorSpan.textContent = "Name must be at least 2 characters long.";
-                            else if (value.length > 50) errorSpan.textContent = "Name must be 50 characters or less.";
-                            else errorSpan.textContent = "Name can only contain letters, spaces, or hyphens.";
-                        } else errorSpan.textContent = "";
-                        break;
-                    case "email":
-                        if (!value) errorSpan.textContent = "Email is required.";
-                        else if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(value)) errorSpan.textContent = "Please enter a valid email.";
-                        else errorSpan.textContent = "";
-                        break;
-                    case "subject":
-                        if (!value) errorSpan.textContent = "Subject is required.";
-                        else if (!/^[\w\s.,!?()-]{3,100}$/.test(value)) {
-                            if (value.length < 3) errorSpan.textContent = "Subject must be at least 3 characters long.";
-                            else if (value.length > 100) errorSpan.textContent = "Subject must be 100 characters or less.";
-                            else errorSpan.textContent = "Subject can only contain letters, numbers, or basic punctuation.";
-                        } else errorSpan.textContent = "";
-                        break;
-                    case "message":
-                        if (!value) errorSpan.textContent = "Message is required.";
-                        else if (!/^[\s\S]{5,1000}$/.test(value)) {
-                            if (value.length < 5) errorSpan.textContent = `Message must be at least 5 characters long. (Currently ${value.length})`;
-                            else if (value.length > 1000) errorSpan.textContent = "Message must be 1000 characters or less.";
-                        } else errorSpan.textContent = "";
-                        break;
-                    default:
-                        errorSpan.textContent = "";
-                }
-                input.classList.toggle("invalid", errorSpan.textContent !== "");
-            });
         });
 
         contactForm.addEventListener("submit", async (e) => {
@@ -216,26 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const submitButton = contactForm.querySelector("button");
             submitButton.disabled = true;
             submitButton.textContent = "Sending…";
-
-            const name = contactForm.querySelector('input[name="name"]').value.trim();
-            const email = contactForm.querySelector('input[name="email"]').value.trim();
-            const subject = contactForm.querySelector('input[name="subject"]').value.trim();
-            const message = contactForm.querySelector('textarea[name="message"]').value.trim();
-
-            const nameValid = /^[a-zA-Z\s-]{2,50}$/.test(name);
-            const emailValid = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(email);
-            const subjectValid = /^[\w\s.,!?()-]{3,100}$/.test(subject);
-            const messageValid = /^[\s\S]{5,1000}$/.test(message);
-
-            if (!nameValid || !emailValid || !subjectValid || !messageValid) {
-                confirmation.textContent = "Please fix the errors above before submitting.";
-                confirmation.style.color = "#FF007A";
-                confirmation.style.display = "block";
-                setTimeout(() => { confirmation.style.display = "none"; }, 3000);
-                submitButton.disabled = false;
-                submitButton.textContent = "Send Message";
-                return;
-            }
 
             try {
                 const response = await fetch("https://formspree.io/f/movevjqd", {
@@ -318,6 +247,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100));
         scrollTopBtn.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
+            scrollTopBtn.classList.add("active");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY === 0) {
+                    scrollTopBtn.classList.remove("active");
+                }
+            });
         });
     }
 
@@ -347,6 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initHamburgerMenu();
     initInteractiveBackground();
     initSkillBoxes();
+    initEducationBoxes();
     initTypewriter();
     initAge();
     initSkillsProgress();
